@@ -40,11 +40,6 @@ footer{
 .logo img{
     height: 50px;
 }
-@media (min-width: 992px) {
-    .navbar-expand-lg .navbar-collapse {
-        max-height: unset;
-    }
-}
 #bg{
     position: absolute;
     top: 0;
@@ -77,12 +72,18 @@ footer{
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid gainsboro;
 }
+.light_on_of1{
+    display: block;
+}
+.light_on_off2{
+    display: none;
+}
 
 
 
 
 
-
+/* -------------------------------------------------    Scroll    ------------------------------------------------*/
 ::-webkit-scrollbar {
   width: 12px; /* Set the width of the scrollbar */
   background-color: #f5f5f5; /* Background color of the scrollbar track */
@@ -100,3 +101,55 @@ footer{
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); /* Inner shadow for the track */
   z-index: 99999999999;
 }
+/* -------------------------------------------------    Scroll    ------------------------------------------------*/
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        max-height: unset;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar .container  {
+        max-width: 870px;
+    }
+
+    .main {
+        max-width: 870px !important;
+    }
+    .main .owl-parent{
+        max-width: 100% !important;
+    }
+    .message_div p{
+        font-size: 30px;
+        backdrop-filter: blur(2px);
+    }
+    .message_div h2{
+        font-size: 45px;
+    }
+    .owl-item{
+        height: 400px;
+        width: 350px;
+    }
+    .logo img{
+        height: 95px;
+    }
+    .navbar-toggler{
+        height: 70px;
+        width: 80px;
+    }
+    .navbar-toggler-icon{
+        font-size: 30px;
+    }
+    .nav-link{
+        font-size: 40px !important;
+    }
+    .light_on_off2{
+        display: block;
+        font-size: 55px !important;
+        margin-right: 10px !important;
+    }
+    .light_on_off1{
+        display: none;
+    }
+}
+/* -------------------------------------------------    media    ------------------------------------------------*/

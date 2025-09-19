@@ -1,6 +1,8 @@
 $(document).ready(function(){
+
+    var items_in_carousel = $(window).width() < 992? 2: 4;
         $('[data-ban="carousel1"]').owlCarousel({
-            items:4,
+            items:items_in_carousel,
             loop:true,
             margin:10,
             autoplay:true,
@@ -8,7 +10,7 @@ $(document).ready(function(){
             autoplayHoverPause:true
         });
         $('[data-ban="carousel2"]').owlCarousel({
-            items:4,
+            items:items_in_carousel,
             loop:true,
             margin:10,
             autoplay:true,
