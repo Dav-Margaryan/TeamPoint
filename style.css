@@ -73,10 +73,10 @@ footer{
     border: 1px solid gainsboro;
 }
 .light_on_off1{
-    display: block;
+    display: block !important;
 }
 .light_on_off2{
-    display: none;
+    display: none !important;
 }
 
 
@@ -144,12 +144,12 @@ footer{
         font-size: 40px !important;
     }
     .light_on_off2{
-        display: block;
+        display: block !important;
         font-size: 55px !important;
         margin-right: 10px !important;
     }
     .light_on_off1{
-        display: none;
+        display: none !important;
     }
 }
 /* -------------------------------------------------    media    ------------------------------------------------*/

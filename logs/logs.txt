@@ -1,0 +1,61 @@
+
+2023-08-30 08:29:09, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data 
+
+2023-08-30 08:29:16, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data 
+
+2023-08-30 08:29:29, Dir: C:\xampp\htdocs\ajax.test\modules\controllers\MethodsController.php, Line: 43
+Array
+(
+    [functionName] => save
+    [newTaskName] => undefined
+    [taskName] => New Task
+    [id] => undefined
+    [is_active] => 0
+)
+
+
+2023-08-30 08:30:57, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data 
+
+2023-08-30 08:31:02, Dir: C:\xampp\htdocs\ajax.test\modules\controllers\MethodsController.php, Line: 43
+Array
+(
+    [functionName] => save
+    [newTaskName] => undefined
+    [taskName] => New Task
+    [id] => undefined
+    [is_active] => 0
+)
+
+
+2023-08-30 08:31:02, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+UPDATE tasks_data SET title = 'New Task',date = '2023-08-30',is_active = '0'  WHERE id = undefined
+
+2023-08-30 08:31:02, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 33
+eeee
+
+2023-08-30 08:59:33, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data 
+
+2025-02-03 13:42:18, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data 
+
+2025-02-03 13:42:28, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data WHERE id='undefined'
+
+2025-02-03 13:42:38, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data 
+
+2025-02-03 13:42:43, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+DELETE  FROM tasks_data  WHERE id = 0
+
+2025-02-03 13:42:53, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data WHERE title='11'
+
+2025-02-03 13:43:00, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data 
+
+2025-02-03 13:43:02, Dir: C:\xampp\htdocs\ajax.test\library\MySQL.php, Line: 7
+SELECT * FROM tasks_data 
