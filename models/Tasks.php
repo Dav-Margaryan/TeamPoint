@@ -3,7 +3,7 @@ class Tasks{
     protected $TASKS_TABLE = 'tasks_data';
 
     public function getTask($search = array()){
-        include_once "../../DV_Controllers.php";
+        Logger::logDebugInformation('here');
         $dba = new MySQL();
         $where = array();
         $_where = '';
@@ -36,7 +36,6 @@ class Tasks{
     }
 
     public function addTask($taskName){
-        include_once "../../DV_Controllers.php";
         $title = $taskName;
         $date = date("Y-m-d");
         $is_active = 1;
@@ -46,7 +45,6 @@ class Tasks{
     }
 
     public function updateTask($id,$data){
-        include_once "../../DV_Controllers.php";
         $dba = new MySQL();
         $title = $data['title'];
         $date = date("Y-m-d");
@@ -56,7 +54,6 @@ class Tasks{
     }
 
     public function deleteTask($id){
-        include_once "../../DV_Controllers.php";
         $dba = new MySQL();
         $id = abs(intval($id));
         $query = "DELETE  FROM $this->TASKS_TABLE  WHERE id = $id";

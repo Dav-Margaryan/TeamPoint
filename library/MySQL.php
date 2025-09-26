@@ -1,10 +1,8 @@
 <?php
 class MySQL{
-    protected $DB_NAME = 'ajax.test';
+    protected $DB_NAME = 'Teampoint';
     function query($query){
-        include_once "../../DV_Controllers.php";
         $db = mysqli_connect('localhost','root','',$this->DB_NAME);
-        Logger::logDebugInformation($query);
         $response = mysqli_query($db,$query);
         if (FALSE === $response) {
             $error = array();
