@@ -7,7 +7,7 @@
     </head>
     <body>
         <?php require_once 'blocks/menu.php'?>
-        <div class="layout_main">
+        <div class="main container">
             <?= $content ?>
         </div>
 

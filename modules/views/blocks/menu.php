@@ -2,7 +2,8 @@
     <div class="container">
         <div class="navbar-brand d-flex">
             <a href="<?=$this->helperUrl(array('controller'=>'','action'=>''))?>" class="logo">
-                <img src="<?= BASE_URL ?>/resources/images/TeamPoint.png" alt="">
+                <img src="<?= BASE_URL ?>/resources/images/TeamPoint.png" alt="TeamPoint" class="black_letters">
+                <img src="<?= BASE_URL ?>/resources/images/TeamPointWhite.png" alt="TeamPoint" class="white_letters d-none">
             </a>
         </div>
         <div class="d-flex align-items-center">
@@ -30,7 +31,7 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav login_menu_item">
                     <li class="nav-item rounded">
                         <a class="nav-link menu-color" href="<?= $this->helperUrl(array('controller'=>'Customer','action' => 'login','reset' => true))?>">
                             <i class="fa fa-sign-in-alt"></i>

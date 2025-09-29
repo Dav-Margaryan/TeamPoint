@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+    var light = sessionStorage.getItem("page_light");
+    if(light)
+        changeColor(light,false)
+
+
     var items_in_carousel = $(window).width() < 992? 2: 4;
         $('[data-ban="carousel1"]').owlCarousel({
             items:items_in_carousel,
@@ -26,6 +31,49 @@ $(document).ready(function(){
             $(this).attr('data-light','on')
           }
         })
+
+        $(document).on("click",".fa-eye,.fa-eye-slash",function (){
+            if($(this).hasClass('fa-eye')) {
+                $(".fa-eye-slash").removeClass('d-none')
+                $('[type="password"]').attr('type','text')
+            }else {
+                $(".fa-eye").removeClass('d-none')
+                $('[type="text"]').attr('type','password')
+            }
+
+            $(this).addClass('d-none')
+        })
+
+        $(document).on('click','.fa-lightbulb',function (){
+            changeColor($("body").attr('light'),true)
+        })
+
+        function changeColor(light,is_click){
+            if(light == 'on'){
+                $("body").attr('light','off');
+                $("body").css({'background-color':'black','color':'white'})
+                $(".navbar").css({'background-color':'black','color':'white'})
+                $(".nav-link").css({'color':'white'})
+                $(".black_letters").addClass('d-none')
+                $(".white_letters").removeClass('d-none')
+                if(is_click) {
+                    sessionStorage.removeItem("page_light")
+                    sessionStorage.setItem("page_light", "on");
+                }
+            }else{
+                $("body").attr('light','on');
+                $("body").css({'background-color':'white','color':'unset'})
+                $(".navbar").css({'background-color':'white','color':'white'})
+                $(".nav-link").css({'color':'#595959FF'})
+                $(".white_letters").addClass('d-none')
+                $(".black_letters").removeClass('d-none')
+                if(is_click) {
+                    sessionStorage.removeItem("page_light")
+                    sessionStorage.setItem("page_light", "off");
+                }
+            }
+        }
+
       });
       const canvas = document.getElementById('bg');
       const ctx = canvas.getContext('2d');

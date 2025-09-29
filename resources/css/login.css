@@ -1,0 +1,44 @@
+body{
+    overflow: hidden;
+}
+
+.login_form_block{
+    height: 400px;
+    width: 400px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.login_form_block .first_div{
+    height: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.login_form_block button{
+    margin: 0 auto;
+}
+
+.login_menu_item{
+    display: none;
+}
+
+.fa-eye, .fa-eye-slash{
+    right: 15px !important;
+    font-size: 22px;
+    bottom: 8px;
+    color:black; !important;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .login_form_block{
+
+    }
+}
