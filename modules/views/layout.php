@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>TeamPoint</title>
+        <!-- favicon PNG -->
+        <link rel="icon" type="image/png" href="<?=BASE_URL.'resources/images/TeamPointIco.ico'?>">
         <?php require_once 'blocks/scripts.php'?>
     </head>
     <body>

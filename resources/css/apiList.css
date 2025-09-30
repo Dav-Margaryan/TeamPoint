@@ -1,0 +1,60 @@
+.main{
+    align-items: unset;
+}
+.api_list_block{
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+    width: 100%;
+    margin-top: 90px;
+}
+.collapse_text_block{
+    position: relative;
+}
+.collapse_text_block h2{
+    border-bottom: 5px solid green;
+    padding-bottom: 10px;
+}
+.card-body{
+    height: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.collapse_button{
+    width: 25%;
+}
+.search_block{
+    z-index: 999999;
+    position: fixed;
+    top: 120px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.search_block div{
+    width: 50%;
+    position: relative;
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.search_block div input{
+    width: 100%;
+}
+.search_block div i{
+    position: absolute;
+    top: 26px;
+    right: 30px;
+    color: gray;
+    font-size: 25px;
+}
+.search_block button{
+    width: 120px;
+}

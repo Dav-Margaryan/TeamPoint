@@ -2,8 +2,8 @@
     <div class="container">
         <div class="navbar-brand d-flex">
             <a href="<?=$this->helperUrl(array('controller'=>'','action'=>''))?>" class="logo">
-                <img src="<?= BASE_URL ?>/resources/images/TeamPoint.png" alt="TeamPoint" class="black_letters">
-                <img src="<?= BASE_URL ?>/resources/images/TeamPointWhite.png" alt="TeamPoint" class="white_letters d-none">
+                <img src="<?= BASE_URL ?>/resources/images/TeamPoint.png" alt="TeamPoint" class="black_letters d-none">
+                <img src="<?= BASE_URL ?>/resources/images/TeamPointWhite.png" alt="TeamPoint" class="white_letters">
             </a>
         </div>
         <div class="d-flex align-items-center">
@@ -16,17 +16,17 @@
             <div class="navbar-nav ms-auto">
                 <ul class="navbar-nav pe-5">
                     <li class="nav-item dropdown position-relative">
-                        <a class="nav-link" role="button" href="#">
+                        <a class="nav-link" role="button" href="<?= $this->helperUrl(array('controller'=>'Api','action'=>'list'))?>">
                             API ցանկ
                         </a>
                     </li>
                     <li class="nav-item dropdown position-relative">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" target="_blank" href="<?= BASE_URL.'resources/TeamPoint_guide.pdf'?>">
                             Ուղեցույց
                         </a>
                     </li>
                     <li class="nav-item dropdown position-relative">
-                        <a class="nav-link" role="button"href="#">
+                        <a class="nav-link" role="button" href="<?= $this->helperUrl(array('controller'=>'FeedBack','action'=>'index'))?>">
                             Հետադարձ կապ
                         </a>
                     </li>
