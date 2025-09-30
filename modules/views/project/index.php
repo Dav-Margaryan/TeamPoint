@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="<?= BASE_URL.'resources/css/project_api.css'?>">
-<script src="<?=BASE_URL.'resources/js/project_api.js'?>"></script>
 <div class="project_api_list d-flex flex-column w-100">
     <div class="d-flex justify-content-between">
         <div></div>
