@@ -123,6 +123,21 @@
          changeColor($("body").attr('light'),true)
      })
 
+     $(document).on('click','.multi_lang_content .languages div',function (){
+         var selected_lang = $(this).data('lang');
+         $(".languages div").each(function (){
+             $(this).removeClass('active')
+         })
+         $(this).addClass('active')
+         $(".lang_blocks .block").each(function (){
+             if($(this).data('lang-block') != selected_lang) {
+                 $(this).addClass('d-none');
+             }else {
+                 $(this).removeClass('d-none')
+             }
+         })
+     })
+
      function changeColor(light,is_click){
          if(light == 'on'){
              $("body").attr('light','off');

@@ -1,0 +1,16 @@
+.main{
+    align-items: unset;
+}
+form{
+    position: relative;
+    width: 100%;
+}
+.for_bg{
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(12px);
+}
+label{
+    margin-bottom: 5px;
+}
+

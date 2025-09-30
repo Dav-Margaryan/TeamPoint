@@ -1,0 +1,25 @@
+.main{
+    align-items: unset;
+}
+.projectCollapseOpener{
+    border: 1px solid lightgray;
+    position: relative;
+    font-size: 25px;
+    font-weight: bold;
+}
+.projectCollapseOpener,.for_bg{
+    border-radius: 15px 15px 0 0;
+}
+.projectCollapseOpener .for_bg,.projectCollapse .card{
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.projectCollapse{
+    position: relative;
+}
+.projectCollapse .card{
+    border: 1px solid lightgray;
+    border-radius: 0 0 15px 15px;
+}

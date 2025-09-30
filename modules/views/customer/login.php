@@ -13,7 +13,7 @@
                 <i class="fa fa-eye-slash position-absolute d-none"></i>
             </div>
             <div class="w-100 d-flex justify-content-center mt-3">
-                <button class="btn btn-success w-50 mt-2">Մուտք</button>
+                <a href="<?=$this->helperUrl(array('controller'=>'project','action'=>'index'))?>" class="btn btn-success w-50 mt-2">Մուտք</a>
             </div>
         </form>
         <div class="d-flex justify-content-between mt-4">
