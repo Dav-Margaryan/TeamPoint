@@ -40,10 +40,10 @@
                                     <div class="message_circle d-flex align-items-center justify-content-center" title="Նոր նամակներ"><?=rand(1,10)*($i+1)?></div>
                                 </div>
                                 <div class="d-flex justify-content-between gap-2">
-                                    <button class="btn btn-secondary d-flex justify-content-between align-items-center gap-2">
+                                    <a href="<?=$this->helperUrl(array('controller'=>'api','action'=>'view','data'=>array('id'=>$api['id'])))?>" class="btn btn-secondary d-flex justify-content-between align-items-center gap-2">
                                         <i class="fa fa-eye"></i>
                                         Դիտել
-                                    </button>
+                                    </a>
                                     <button class="btn btn-danger d-flex justify-content-between align-items-center gap-2">
                                         <i class="fa fa-trash"></i>
                                         Հեռացնել

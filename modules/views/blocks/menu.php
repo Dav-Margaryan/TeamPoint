@@ -41,21 +41,9 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown position-relative">
-                        <a class="nav-link dropdown-toggle menu-color non-after" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link menu-color non-after" role="button" data-bs-toggle="collapse" data-bs-target="#collapseLang" aria-expanded="false" aria-controls="collapseLang">
                             <span class="menu-color">Հայերեն <i class="fa fa-solid fa-globe"></i></span>
                         </a>
-                        <ul class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="nav-item">
-                                <a class="menu-color" href="/ru" title="Ռուսերեն">
-                                    <span class="">Ռուսերեն</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="menu-color" href="/en" title="Անգլերեն">
-                                    <span class="">Անգլերեն</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
                 <ul class="navbar-nav light_on_off1">
@@ -64,6 +52,13 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="collapse" id="collapseLang" style="position: absolute">
+            <ul>
+                <li>Հայերեն</li>
+                <li>Ռուսերեն</li>
+                <li>Անգլերեն</li>
+            </ul>
         </div>
     </div>
 </nav>

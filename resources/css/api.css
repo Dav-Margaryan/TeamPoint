@@ -1,0 +1,178 @@
+.main{
+    position: relative;
+}
+.sub_main{
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    display: flex;
+    border: 1px solid;
+}
+.block1,.block2{
+    width: 50%;
+    height: 90vh;
+}
+.block1{
+    border-right: 1px solid lightgrey;
+}
+
+.team_block,.conversation_block{
+    height: 49%;
+}
+.members{
+    overflow-y: auto;
+}
+.resizer{
+    height: 2%;
+    color: white;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid;
+    cursor: row-resize;
+    background-color: gray;
+}
+.team_block_header,.api_block_header{
+    height: 50px;
+    font-size: 20px;
+    border-bottom: 1px solid;
+}
+.team_block_header i{
+    font-size: 30px;
+    color: green;
+}
+.member{
+    margin: 5px;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid;
+}
+.member_image{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.conversation_block{
+    position: relative;
+}
+.my_message{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    border-top: 1px solid white;
+    background-color: gray;
+    border-radius: 0 0 0 9px;
+    color: white;
+}
+.my_message_input::placeholder{
+    color: white;
+}
+.my_message_input{
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    resize: none;
+    padding: 5px 0 0 5px;
+}
+.message_member_img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.message_block .message{
+    border-radius: 15px;
+    background: none;
+    max-width: 50%;
+    border: 1px solid lightslategray;
+    padding: 10px;
+}
+.all_messages .mine{
+    justify-content: end;
+}
+.all_messages .mine .message_member_img{
+    display: none;
+}
+.all_messages{
+    height: 100%;
+    overflow-y: auto;
+}
+
+#collapseMethod {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    width: 125px;
+}
+
+#collapseMethod .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+#collapseMethod li:hover{
+    background-color: lightgrey;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#collapseMethod ul{
+    list-style: none;
+    margin-left: 0;
+    text-align: center;
+    padding-left: 0;
+}
+.blocks .active{
+    background-color: gray;
+    color: white;
+}
+.blocks div{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.transfer_types .type{
+    border: 1px solid;
+    padding: 5px;
+    cursor: pointer;
+}
+.transfer_types .active,.transfer_types .type:hover{
+    background-color: white;
+    color: black;
+}
+.fields textarea{
+    background: none;
+    color: white;
+}
+.api_fields{
+    height: 82%;
+    overflow-y: auto;
+}
+.fa-trash{
+    color: darkred;
+    cursor: pointer;
+}
+.api_description span,.api_test span{
+    display: block;
+}
+.api_description i,.api_test i{
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .api_description span,.api_test span{
+        display: none;
+    }
+    .api_description i,.api_test i{
+        display: block;
+        font-size: 22px;
+    }
+}

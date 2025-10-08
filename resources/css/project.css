@@ -1,5 +1,6 @@
 .main{
     align-items: unset;
+    z-index: 9;
 }
 form{
     position: relative;

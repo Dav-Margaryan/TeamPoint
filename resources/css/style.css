@@ -20,6 +20,7 @@ canvas {
 }
 .nav-link{
     color: white;
+    font-size: 20px !important;
 }
 .nav-link:hover{
     color: green !important;
@@ -128,8 +129,11 @@ footer{
     border-radius: 0 15px 15px 15px;
 }
 .languages .active{
-    background-color: white;
-    color: black;
+    background-color: gray;
+    color: white;
+}
+.fa-lightbulb{
+    cursor: pointer;
 }
 
 .message_circle {

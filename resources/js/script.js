@@ -16,7 +16,7 @@
       this.y = Math.random() * height;
       this.vx = (Math.random() - 0.5) * 1;
       this.vy = (Math.random() - 0.5) * 1;
-      this.r = 2;
+      this.r = 5;
     }
     move() {
       this.x += this.vx;
@@ -146,6 +146,10 @@
              $(".nav-link").css({'color':'white'})
              $(".black_letters").addClass('d-none')
              $(".white_letters").removeClass('d-none')
+             $('.navbar-toggler').addClass('navbar-dark')
+             $('.navbar-toggler').addClass('border')
+             $('.fa-lightbulb').css('color','white')
+
              if(is_click) {
                  sessionStorage.removeItem("page_light")
                  sessionStorage.setItem("page_light", "on");
@@ -157,6 +161,9 @@
              $(".nav-link").css({'color':'#595959FF'})
              $(".white_letters").addClass('d-none')
              $(".black_letters").removeClass('d-none')
+             $('.navbar-toggler').removeClass('navbar-dark')
+             $('.navbar-toggler').removeClass('border')
+             $('.fa-lightbulb').css('color','greenyellow')
              if(is_click) {
                  sessionStorage.removeItem("page_light")
                  sessionStorage.setItem("page_light", "off");
@@ -194,3 +201,19 @@
          $(this).stop().slideUp(1000); // close in 1 second
      });
  });
+
+
+
+ //// JS
+ // async function sendMessage(message){
+ //     const response = await fetch('send_message.php', {
+ //         method: 'POST',
+ //         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+ //         body: `message=${encodeURIComponent(message)}`
+ //     });
+ //     const result = await response.text(); // կամ response.json()
+ //     console.log(result); // տեսնում ես ինչ վերադարձավ
+ // }
+
+ // const data = await response.json();
+ // console.log(data.message, data.id);

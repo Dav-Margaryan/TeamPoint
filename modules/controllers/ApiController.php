@@ -61,4 +61,108 @@ class controllers_ApiController extends MainController{
         );
         $this->render('api/list',$data);
     }
+
+    public function viewAction(){
+        $data['team_members'] = array(
+            0 => array(
+                'id' => 1,
+                'full_name' => 'Արման Խաչատրյան',
+                'color' => 'green'
+            ),
+            1 => array(
+                'id' => 2,
+                'full_name' => 'Դավիթ Բեկնազարյան',
+                'color' => 'red'
+            ),
+            2 => array(
+                'id' => 3,
+                'full_name' => 'Զառա Խանամիրյան',
+                'color' => 'blue'
+            ),
+            3 => array(
+                'id' => 4,
+                'full_name' => 'Աշոտ Գևորգյան',
+                'color' => 'gray'
+            ),
+            4 => array(
+                'id' => 5,
+                'full_name' => 'Կարեն Գևորգյան',
+                'color' => 'magenta'
+            ),
+            5 => array(
+                'id' => 1,
+                'full_name' => 'Արման Խաչատրյան',
+                'color' => 'green'
+            ),
+            6 => array(
+                'id' => 2,
+                'full_name' => 'Դավիթ Բեկնազարյան',
+                'color' => 'red'
+            ),
+            7 => array(
+                'id' => 3,
+                'full_name' => 'Զառա Խանամիրյան',
+                'color' => 'blue'
+            ),
+            8 => array(
+                'id' => 4,
+                'full_name' => 'Աշոտ Գևորգյան',
+                'color' => 'gray'
+            ),
+            9 => array(
+                'id' => 5,
+                'full_name' => 'Կարեն Գևորգյան',
+                'color' => 'magenta'
+            )
+        );
+
+        $data['messages'] = array(
+            0 => array(
+                'message_id' => 1,
+                'writer_id' => 3,
+                'writer_full_name' => 'Զառա Խանամիրյան',
+                'color' => 'blue',
+                'message' => 'Բարև Ձեզ։
+                              Խնդրեմ ասեք ինչ փուլում են գտնվում աշխատանքները և հնարավորության դեպքում տրամադրեք վերջնաժամկետ։'
+            ),
+            1 => array(
+                'message_id' => 2,
+                'writer_id' => 2,
+                'writer_full_name' => 'Դավիթ Բեկնազարյան',
+                'color' => 'red',
+                'message' => 'Բարև։
+                              Հիմա գտնվում ենք թեստավորման փուլում, բայց թիմի ղեկավարի առաջարկով, առաջացել են որոշակի փոփոխությունների կարիք։'
+            ),
+            2 => array(
+                'message_id' => 3,
+                'writer_id' => 2,
+                'writer_full_name' => 'Դավիթ Բեկնազարյան',
+                'color' => 'red',
+                'message' => 'Խնդրեմ ծրագրավորողներին նշել իրենց փոփոխության վերջնաժամկետ, ըստ այդմ հասկանանք։'
+            ),
+            3 => array(
+                'message_id' => 4,
+                'writer_id' => 5,
+                'writer_full_name' => 'Կարեն Գևորգյան',
+                'color' => 'magenta',
+                'message' => 'Բարև բոլորին, փոփոխությունները շաբաթվա վերջ արված կլինեն։'
+            ),
+            4 => array(
+                'message_id' => 5,
+                'writer_id' => 2,
+                'writer_full_name' => 'Դավիթ Բեկնազարյան',
+                'color' => 'red',
+                'message' => 'Շատ լավ, կարծում եմ մյուս շաբաթվա հաջորդող շաբաթվա սկիզբ պատրաստ կլինենք հրապարակման։'
+            ),
+            5 => array(
+                'message_id' => 6,
+                'writer_id' => 3,
+                'writer_full_name' => 'Զառա Խանամիրյան',
+                'color' => 'blue',
+                'message' => 'Լավ'
+            )
+        );
+
+        $this->render('api/view',$data);
+    }
 }

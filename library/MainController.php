@@ -25,8 +25,8 @@ class MainController {
         $action     = $params['action'] ?? 'index';
         $url = rtrim(BASE_URL, '/') . '/' . $controller . '/' . $action;
 
-        if (!empty($params['query']) && is_array($params['query'])) {
-            $url .= '?' . http_build_query($params['query']);
+        if (!empty($params['data']) && is_array($params['data'])) {
+            $url .= '?' . http_build_query($params['data']);
         }
 
         return $url;
