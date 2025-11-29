@@ -5,7 +5,7 @@
     }
 </style>
 <div class="login_form_block">
-    <div class="first_div p-3">
+    <div class="first_div p-5">
         <form action="" class="login_form mt-3">
             <h1 class="text-center">Մոռացել եմ գաղտնաբառը</h1>
             <label for="" class="mt-5">Էլ․ հասցե</label>

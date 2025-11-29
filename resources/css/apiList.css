@@ -1,12 +1,91 @@
 .main{
     align-items: unset;
+    flex-direction: column;
 }
+.api_categories{
+    margin-bottom: 50px;
+}
+.api_categories h1{
+    width: fit-content;
+    border-bottom: 5px solid green;
+    padding-bottom: 10px;
+}
+.api_categories h1,.api_title h1{
+    width: fit-content;
+    border-bottom: 5px solid green;
+    padding-bottom: 10px;
+}
+.categories_list{
+    display: flex;
+    gap: 20px;
+}
+.content,.cat_list{
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(12px);
+    font-size: 20px;
+}
+.circle_category{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: limegreen;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+.cat_list{
+    border-radius: 60px;
+    border-right: none;
+    border-left: none;
+}
+:root {
+    --duration: 30s;   /* Speed control — smaller = faster */
+    --gap: 2rem;
+}
+.cat_list {
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    width: 100%;
+    padding: 1rem 0;
+    position: relative;
+}
+.categories_list {
+    display: flex;
+    gap: var(--gap);
+    animation: scroll var(--duration) linear infinite;
+}
+
+.cat_list:hover .categories_list {
+    animation-play-state: paused; /* Pause on hover */
+}
+
+.feedback_stars .fa-star {
+    font-size: 30px;
+    color: #ccc;         /* default color */
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.feedback_stars .fa-star.gold {
+    color: gold;
+}
+@keyframes scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* moves by half the total width (because we’ll duplicate content) */
+}
+
 .api_list_block{
     display: flex;
     flex-direction: column;
     z-index: 9999;
     width: 100%;
-    margin-top: 90px;
 }
 .collapse_text_block{
     position: relative;
@@ -28,9 +107,6 @@
 }
 .search_block{
     z-index: 999999;
-    position: fixed;
-    top: 120px;
-    left: 0;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -57,4 +133,49 @@
 }
 .search_block button{
     width: 120px;
+}
+.existing_feedbacks,.new_feedback{
+    width: 49%;
+    height: 250px;
+}
+.existing_feedbacks .feedback_list{
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+.new_feedback textarea{
+    height: 100%;
+    width: 100%;
+}
+.customer_feedback{
+    padding: 15px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-style: italic;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+@media screen and (max-width: 992px) {
+    .search_block{
+        top: 140px;
+    }
+    .search_block div {
+        width: 70%;
+    }
+    .search_block input{
+        height: 59px;
+        font-size: 30px;
+    }
+    .search_block i{
+        top: 30px !important;
+        font-size: 40px !important;
+    }
+    .collapse_text_block h2{
+        font-size: 40px;
+    }
+    .collapse_text_block .card-body{
+        font-size: 30px;
+    }
 }

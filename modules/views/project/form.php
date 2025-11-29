@@ -2,9 +2,14 @@
 <script src="https://cdn.tiny.cloud/1/nbdizg85b5g579d6pand16frqn15j4b8xzjpj90dk0i29uoi/tinymce/8/tinymce.min.js"
         referrerpolicy="origin" crossorigin="anonymous"></script>
 <script src="<?=BASE_URL.'resources/js/project.js'?>"></script>
+
+<h1 class="page_title">Ավելացնել/Խմբագրել պռոեկտ</h1>
+<div class="general_image_block">
+    <div class="general_image"></div>
+    <button class="btn btn-secondary">Կցել նկար</button>
+    <input type="file" class="form-control d-none" style="width: auto">
+</div>
 <form action="">
-    <label for="">Կցել նկար</label>
-    <input type="file" class="form-control" style="width: auto">
     <div class="multi_lang_content mt-2">
         <div class="languages d-flex gap-2">
             <div class="active" data-lang="arm">Հայերեն</div>
@@ -17,7 +22,7 @@
                     <label for="">Անվանում</label>
                     <input type="text" class="form-control mb-2">
                     <label for="">Նկարագրություն</label>
-                    <textarea name="" class="multi_lang_content" id="arm" cols="30" rows="10"></textarea>
+                    <textarea name="" class="multi_lang_content" id="arm" cols="30" rows="10" ></textarea>
                 </div>
                 <div class="block d-none" data-lang-block="ru">
                     <label for="">Անվանում</label>

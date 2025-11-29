@@ -33,7 +33,7 @@
   }
 
   const particles = [];
-  for (let i = 0; i < 70; i++)
+  for (let i = 0; i < 250; i++)
     particles.push(new Particle());
 
   function dist(p1, p2) {
@@ -75,6 +75,84 @@
 
  $(document).ready(function(){
 
+
+     const mascot = document.getElementById('mascot');
+     const modal = document.getElementById('modal');
+     const closeBtn = document.getElementById('closeBtn');
+     const bubble = document.getElementById('bubble');
+     const eyeLeft = document.getElementById('eye-left');
+     const eyeRight = document.getElementById('eye-right');
+
+     let direction = 1;
+     const pauseTime = 5000;
+     const runDuration = 5000;
+
+     function moveMascot() {
+         const windowWidth = window.innerWidth;
+         const mascotWidth = mascot.offsetWidth;
+         const start = direction > 0 ? 25 : windowWidth - mascotWidth - 25;
+         const end = direction > 0 ? windowWidth - mascotWidth - 25 : 25;
+
+         // Start running
+         mascot.style.left = start + 'px';
+         mascot.classList.add('running'); // add running animation
+         // Add running class to legs
+         document.querySelectorAll('#legs rect')[0].classList.add('running-leg-left');
+         document.querySelectorAll('#legs rect')[1].classList.add('running-leg-right');
+
+         setTimeout(() => { mascot.style.left = end + 'px'; }, 50);
+
+         setTimeout(()=>{
+             // Stop running
+             mascot.classList.remove('running');
+             document.querySelectorAll('#legs rect')[0].classList.remove('running-leg-left');
+             document.querySelectorAll('#legs rect')[1].classList.remove('running-leg-right');
+
+             // Start jump and tooltip
+             mascot.classList.add('jump');
+             bubble.classList.add('show');
+
+             $('#mascot').css("z-index",'9999999999999999999999999')
+             setTimeout(()=>{
+                 // End jump and greeting
+                 mascot.classList.remove('jump');
+                 bubble.classList.remove('show');
+                 direction*=-1;
+                 // moveMascot();
+             }, pauseTime);
+         }, runDuration);
+     }
+
+     moveMascot();
+
+// Modal click
+     mascot.addEventListener('click', ()=>{ $("#modal_feedback").modal('show') });
+
+// Eyes follow cursor
+     document.addEventListener('mousemove', e=>{
+         const rect = mascot.getBoundingClientRect();
+         const cx = rect.left + rect.width/5;
+         const cy = rect.top + 110; // approx eye center
+         const dx = e.clientX - cx;
+         const dy = e.clientY - cy;
+         const dist = Math.min(4, Math.hypot(dx,dy)/15);
+         const angle = Math.atan2(dy,dx);
+         eyeLeft.setAttribute('cx', 158 + Math.cos(angle)*dist);
+         eyeLeft.setAttribute('cy', 112 + Math.sin(angle)*dist);
+         eyeRight.setAttribute('cx', 202 + Math.cos(angle)*dist);
+         eyeRight.setAttribute('cy', 112 + Math.sin(angle)*dist);
+     });
+
+
+     $(document).on('mouseenter','.tp-root',function (){
+         bubble.classList.add('show')
+     })
+     $(document).on('mouseleave','.tp-root',function (){
+         bubble.classList.remove('show');
+     })
+
+
+
      var light = sessionStorage.getItem("page_light");
      if(light)
          changeColor(light,false)
@@ -107,7 +185,7 @@
          }
      })
 
-     $(document).on("click",".fa-eye,.fa-eye-slash",function (){
+     $(document).on("click","form .fa-eye,.fa-eye-slash",function (){
          if($(this).hasClass('fa-eye')) {
              $(".fa-eye-slash").removeClass('d-none')
              $('[type="password"]').attr('type','text')
@@ -137,18 +215,22 @@
              }
          })
      })
-
+     $('.navbar-toggler-icon').on('click', function() {
+         $(this).toggleClass('active');
+     });
      function changeColor(light,is_click){
          if(light == 'on'){
              $("body").attr('light','off');
-             $("body").css({'background-color':'black','color':'white'})
+             $("body").css({'background-color':'#0f172a','color':'white'})
              $(".navbar").css({'background-color':'black','color':'white'})
              $(".nav-link").css({'color':'white'})
              $(".black_letters").addClass('d-none')
              $(".white_letters").removeClass('d-none')
-             $('.navbar-toggler').addClass('navbar-dark')
-             $('.navbar-toggler').addClass('border')
+             $('.navbar-toggler-icon').removeClass('dark')
+             $('.navbar-toggler').css('border','1px solid white')
              $('.fa-lightbulb').css('color','white')
+             $('.mobile_lang_collapse').css('color','white')
+             $('.person_account_mobile').css('color','white')
 
              if(is_click) {
                  sessionStorage.removeItem("page_light")
@@ -161,9 +243,10 @@
              $(".nav-link").css({'color':'#595959FF'})
              $(".white_letters").addClass('d-none')
              $(".black_letters").removeClass('d-none')
-             $('.navbar-toggler').removeClass('navbar-dark')
-             $('.navbar-toggler').removeClass('border')
+             $('.navbar-toggler-icon').addClass('dark')
              $('.fa-lightbulb').css('color','greenyellow')
+             $('.mobile_lang_collapse').css('color','black')
+             $('.person_account_mobile').css('color','black')
              if(is_click) {
                  sessionStorage.removeItem("page_light")
                  sessionStorage.setItem("page_light", "off");
@@ -194,11 +277,24 @@
 
 
      $('.collapse').on('show.bs.collapse', function (e) {
-         $(this).stop().slideDown(1000); // open in 1 second
+         if($(this).attr('id') != 'navbarCollapse')
+            $(this).closest('div').parent().find(".fa-chevron-down").toggleClass('rot')
      });
 
      $('.collapse').on('hide.bs.collapse', function (e) {
-         $(this).stop().slideUp(1000); // close in 1 second
+         if($(this).attr('id') != 'navbarCollapse')
+            $(this).closest('div').parent().find(".fa-chevron-down").toggleClass('rot')
+     });
+
+
+     document.addEventListener('click', () => {
+         document.querySelectorAll('.menu-popup').forEach(p => p.style.display = 'none');
+         $('.collapse').each(function (){
+             if($(this).hasClass('show') && $(this).attr('id') != 'navbarCollapse'  && $(this).attr('id') != 'collapseResponse') {
+                 $(this).collapse('hide')
+                 // $(this).closest('div').parent().find(".fa-chevron-down").toggleClass('rot')
+             }
+         })
      });
  });
 

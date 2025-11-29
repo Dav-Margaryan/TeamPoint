@@ -1,15 +1,20 @@
-body{
-    /*overflow: hidden;*/
+.main{
+    justify-content: center;
 }
 
 .login_form_block{
-    height: 400px;
-    width: 400px;
+    width: 50%;
     border: 1px solid lightgray;
     border-radius: 5px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
+}
+.login_form{
+    font-size: 20px;
+}
+.login_form button,.login_form .btn-success{
+    font-size: 22px;
 }
 
 .login_form_block .first_div{
@@ -28,17 +33,72 @@ body{
 .login_menu_item{
     display: none;
 }
-
+.circle_image{
+    height: 150px;
+    width: 150px;
+    border: 1px solid;
+    border-radius: 50%;
+}
 .fa-eye, .fa-eye-slash{
     right: 15px !important;
-    font-size: 22px;
-    bottom: 8px;
+    font-size: 25px;
+    bottom: 10px;
     color:black; !important;
     cursor: pointer;
 }
 
+.google_login{
+    width: fit-content;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 0 auto;
+    cursor:pointer;
+}
+
+.personal_account .circle_image{
+    background-image: url("../../resources/images/personal_account.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 180px;
+}
+
+@media screen and (min-width: 992px){
+    .login_form_block input{
+        height: 47px;
+    }
+}
+
 @media (max-width: 992px) {
     .login_form_block{
-
+        width: 100%;
+    }
+    .google_login{
+        padding: 20px;
+    }
+    .google_login img{
+        height: 60px;
+    }
+    .login_form{
+        font-size: 35px;
+    }
+    .login_form input{
+        height: 60px;
+        font-size: 30px;
+    }
+    .login_form textarea{
+        height: 160px;
+    }
+    .fa-eye , .fa-eye-slash{
+        font-size: 45px;
+    }
+    .login_form button,.login_form .btn-success{
+        font-size: 37px;
+    }
+    h1{
+        font-size: 65px;
+    }
+    .text-secondary{
+        font-size: 20px;
     }
 }

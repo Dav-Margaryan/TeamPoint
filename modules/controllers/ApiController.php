@@ -66,7 +66,7 @@ class controllers_ApiController extends MainController{
         $data['team_members'] = array(
             0 => array(
                 'id' => 1,
-                'full_name' => 'Արման Խաչատրյան',
+                'full_name' => "Արման Խաչատրյան",
                 'color' => 'green'
             ),
             1 => array(
@@ -164,5 +164,14 @@ class controllers_ApiController extends MainController{
         );
 
         $this->render('api/view',$data);
+    }
+
+    public function detailsAction(){
+
+        $this->render('api/details');
+    }
+
+    public function formAction(){
+        $this->render('api/form');
     }
 }

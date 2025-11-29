@@ -13,7 +13,6 @@ class Router {
     }
 
     public function dispatch() {
-        require_once 'DV_Controllers.php';
         if (class_exists($this->controller)) {
             $controller = new $this->controller();
             if (method_exists($controller, $this->action))

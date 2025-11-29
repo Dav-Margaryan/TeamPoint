@@ -3,22 +3,22 @@
     .login_menu_item{
         display: block !important;
     }
-    .login_form_block{
-        height: 460px;
-    }
+    /*.login_form_block{*/
+    /*    height: 460px;*/
+    /*}*/
 </style>
 <div class="login_form_block">
-    <div class="first_div p-3">
-        <h2 class="text-center">Ուղարկել նամակ</h2>
+    <div class="first_div p-5">
+        <h1 class="text-center">Ուղարկել նամակ</h1>
         <form action="" class="login_form mt-5">
             <label for="">
                 Անուն
             </label>
             <input type="text" class="form-control">
             <label for="">
-                Ազգանուն
+                Էլ․ հասցե
             </label>
-            <input type="text" class="form-control">
+            <input type="email" class="form-control">
             <label for="">
                 Թեմա
             </label>

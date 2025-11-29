@@ -1,6 +1,8 @@
 <?php
 class controllers_ProjectController extends MainController {
     public function indexAction(){
+        $_SESSION['user_id'] = 1;
+
         $data['project_api_list'] = array(
             0 => array(
                 'id' => 1,

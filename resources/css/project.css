@@ -15,3 +15,7 @@ label{
     margin-bottom: 5px;
 }
 
+.general_image{
+    background-image: url('../images/project_logo_example.jpeg');
+}
+

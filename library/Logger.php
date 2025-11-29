@@ -3,7 +3,7 @@ class Logger{
     public static function logDebugInformation($message = null): void
     {
         if($message != null) {
-            $logs = "logs/logs.txt";
+            $logs = "logs/logs.log";
             $current = file_get_contents($logs);
             $message = (is_string($message) ? $message : print_r($message, 1));
             $t = debug_backtrace();

@@ -1,3 +1,9 @@
+.login_menu_item{
+    display: none;
+}
+.proj_name{
+    cursor: pointer;
+}
 .main{
     align-items: unset;
 }
@@ -22,4 +28,39 @@
 .projectCollapse .card{
     border: 1px solid lightgray;
     border-radius: 0 0 15px 15px;
+}
+.btn-text{
+    display: block;
+}
+.project_api_list button,.project_api_list a{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+@media screen and (max-width: 992px){
+    .project_api_list button,.project_api_list a{
+        font-size: 30px;
+        padding: 10px 20px;
+    }
+    .project_api_list i{
+        font-size: 40px;
+    }
+    .fa-chevron-down{
+        margin: 0 20px;
+    }
+    .project_api_list .proj_name{
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        width: -webkit-fill-available;
+    }
+    .btn-text{
+        display: none;
+    }
+    .project_api_name{
+        font-size: 35px;
+    }
+    .message_circle{
+        padding: 25px;
+    }
 }
