@@ -98,12 +98,12 @@
     <div class="modal fade" id="modalDialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header ">
+                <div class="modal-header  bg-body-secondary">
                     <h1 class="modal-title fs-5 text-white" id="modalDialog"></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body"></div>
-                <div class="modal-footer border-0 row">
+                <div class="modal-footer bg-body-secondary border-0 row">
                         <div class="col-6"></div>
                         <div class="col-6">
                             <button class="btn btn-success hidden" id="addTask">
@@ -122,12 +122,12 @@
     <div class="modal fade" id="modalErrorDialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header ">
+                <div class="modal-header  bg-body-secondary">
                     <h1 class="modal-title fs-5 text-white" id="modalErrorDialog"></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body"></div>
-                <div class="modal-footer border-0 row">
+                <div class="modal-footer bg-body-secondary border-0 row">
                     <div class="col-6"></div>
                     <div class="col-6 d-flex justify-content-end">
                         <button class="btn btn-secondary" data-bs-dismiss="modal">

@@ -1,6 +1,12 @@
 <link rel="stylesheet" href="<?= BASE_URL.'resources/css/api.css'?>">
 <script src="<?=BASE_URL.'resources/js/slick.js'?>"></script>
 <script src="<?=BASE_URL.'resources/js/api.js'?>"></script>
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- AutoTable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
 <style>.main{display: flex;flex-direction: column;align-items: center}</style>
 <div class="sub_main">
     <div class="row m-0 desktop_block">
@@ -60,7 +66,7 @@
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-primary api_description"><span>Նկարագրություն</span><i class="fa-brands fa-wpforms"></i></button>
+                    <button class="btn btn-primary api_description" ><span>Նկարագրություն</span><i class="fa-brands fa-wpforms"></i></button>
 <!--                    <button class="btn btn-warning api_test"><span>Փորձարկել</span><i class="fa-solid fa-flask"></i></button>-->
                 </div>
             </div>
@@ -84,13 +90,13 @@
                             <tbody>
                                 <tr>
                                     <td scope="raw">
-                                        <input type="text" class="form-control" placeholder="Բանալի">
+                                        <input type="text" class="form-control key" placeholder="Բանալի">
                                     </td>
                                     <td scope="raw">
                                         <input type="text" class="form-control" placeholder="Արժեք">
                                     </td>
                                     <td scope="raw">
-                                        <input type="text" class="form-control" placeholder="Նկարագրություն">
+                                        <input type="text" class="form-control description" placeholder="Նկարագրություն">
                                     </td>
                                     <td class="text-center pt-3">
                                         <i class="fa fa-trash d-none"></i>
@@ -114,13 +120,13 @@
                             <tbody>
                                 <tr>
                                     <td scope="raw">
-                                        <input type="text" class="form-control" placeholder="Բանալի">
+                                        <input type="text" class="form-control key" placeholder="Բանալի">
                                     </td>
                                     <td scope="raw">
                                         <input type="text" class="form-control" placeholder="Արժեք">
                                     </td>
                                     <td scope="raw">
-                                        <input type="text" class="form-control" placeholder="Նկարագրություն">
+                                        <input type="text" class="form-control description" placeholder="Նկարագրություն">
                                     </td>
                                     <td class="text-center pt-3">
                                         <i class="fa fa-trash d-none"></i>
@@ -162,7 +168,7 @@
                                     <tbody>
                                         <tr>
                                             <td scope="raw">
-                                                <input type="text" class="form-control" placeholder="Բանալի">
+                                                <input type="text" class="form-control key" placeholder="Բանալի">
                                             </td>
                                             <td scope="raw">
                                                 <select name="" id="" class="form-select data_type_select">
@@ -174,7 +180,7 @@
                                                 <input type="text" class="form-control" placeholder="Արժեք">
                                             </td>
                                             <td scope="raw">
-                                                <input type="text" class="form-control" placeholder="Նկարագրություն">
+                                                <input type="text" class="form-control description" placeholder="Նկարագրություն">
                                             </td>
                                             <td scope="raw" class="text-center pt-3">
                                                 <i class="fa fa-trash d-none"></i>
@@ -295,8 +301,8 @@
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-primary api_description" data-bs-toggle="modal" data-bs-target="#API_Description"><span>Նկարագրություն</span><i class="fa-brands fa-wpforms"></i></button>
-                        <button class="btn btn-warning api_test"><span>Փորձարկել</span><i class="fa-solid fa-flask"></i></button>
+                        <button class="btn btn-primary api_description">Նկարագրություն</button>
+<!--                        <button class="btn btn-warning api_test"><span>Փորձարկել</span><i class="fa-solid fa-flask"></i></button>-->
                     </div>
                 </div>
                 <div class="d-flex justify-content-between w-100 blocks p-3">
@@ -469,25 +475,111 @@
 </div>
 
     <div class="block3 pt-2 collapse w-100" id="collapseResponse">
-        <div class="menu_bar response_content_buttons">
-            <div class="active pb-2 pe-3 ps-3 pt-1" data-slide="1">Body</div>
-            <div class="pb-2 pe-3 ps-3 pt-1" data-slide="2">Cookies</div>
-            <div class="pb-2 pe-3 ps-3 pt-1" data-slide="3">Header</div>
+        <div class="menu_bar response_content_buttons d-flex justify-content-between">
+            <div class="d-flex groups">
+                <div class="active pb-2 pe-3 ps-3 pt-1" data-slide="1">Body</div>
+                <div class="pb-2 pe-3 ps-3 pt-1" data-slide="2">Cookies</div>
+                <div class="pb-2 pe-3 ps-3 pt-1" data-slide="3">Header</div>
+            </div>
+            <div class="addition_info items">
+                <div class="item status" role="listitem" tabindex="0" aria-describedby="status-panel">
+                    <div class="value">
+                        <span class="status-dot up" aria-hidden="true"></span>
+                        <span>200 OK</span>
+                    </div>
+
+                    <div class="panel" id="status-panel" role="dialog" aria-hidden="true">
+                        <div class="row">
+                            <div class="metric">200 OK</div>
+                            <div class="hint">Հաջող վերադարձված պատասխան</div>
+                        </div>
+                        <div class="row">
+                            <div class="hint">Մոտավոր պատճառներ</div>
+                        </div>
+                        <div class="row">
+                            <div class="badge">Method: GET</div>
+                            <div class="badge">Path: /api/user</div>
+                        </div>
+                        <div class="footer">
+                            <div>Սերվեր՝ api.example.com</div>
+                            <div class="hint">Դետալներ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIME -->
+                <div class="item time" role="listitem" tabindex="0" aria-describedby="time-panel">
+                    <div class="value">322.88 ms</div>
+
+                    <div class="panel" id="time-panel" role="dialog" aria-hidden="true">
+                        <div class="row">
+                            <div class="metric">Total: 734.58 ms</div>
+                            <div class="hint">Մանրամասները ներքո</div>
+                        </div>
+
+                        <div class="row">
+                            <div style="flex:1;">
+                                <div class="hint">DNS: <strong>75.68 ms</strong></div>
+                                <div class="hint">TCP: <strong>79 ms</strong></div>
+                                <div class="hint">SSL: <strong>171.41 ms</strong></div>
+                                <div class="hint">TTFB: <strong>322.88 ms</strong></div>
+                                <div class="hint">Download: <strong>30.10 ms</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="footer">
+                            <div class="hint">Time breakdown</div>
+                            <div class="hint">Cached: No</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIZE -->
+                <div class="item size" role="listitem" tabindex="0" aria-describedby="size-panel">
+                    <div class="value">15.4 KB</div>
+
+                    <div class="panel" id="size-panel" role="dialog" aria-hidden="true">
+                        <div class="row">
+                            <div class="metric">15.4 KB</div>
+                            <div class="hint">Ընդհանուր պատասխան</div>
+                        </div>
+
+                        <div class="row">
+                            <div style="flex:1;">
+                                <div class="hint">Headers: <strong>1.2 KB</strong></div>
+                                <div class="hint">Body: <strong>14.2 KB</strong></div>
+                                <div class="hint">Compressed: <strong>8.7 KB</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="footer">
+                            <div class="hint">Content-Type: application/json</div>
+                            <div class="hint">Encoding: gzip</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="response_content p-3">
             <div class="w-100" id="collapseResponseBody">
-                <div class="controls">
-                    <label for="format">Format:</label>
-                    <select id="format">
-                        <option value="json" selected>JSON</option>
-                        <option value="xml">XML</option>
-                        <option value="html">HTML</option>
-                    </select>
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="controls">
+                        <label for="format">Format:</label>
+                        <select id="format">
+                            <option value="json" selected>JSON</option>
+                            <option value="xml">XML</option>
+                            <option value="html">HTML</option>
+                        </select>
 
-                    <!-- optional: when HTML selected, allow to show source instead of rendered -->
-                    <label id="showSourceLabel" style="display:none; align-items:center;">
-                        <input type="checkbox" id="showSource" /> &nbsp;Show HTML source
-                    </label>
+                        <!-- optional: when HTML selected, allow to show source instead of rendered -->
+                        <label id="showSourceLabel" style="display:none; align-items:center;">
+                            <input type="checkbox" id="showSource" /> &nbsp;Show HTML source
+                        </label>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="fa fa-copy"></i>
+                        <input type="text" class="form-control" style="width: 150px;" placeholder="Որոնել․․․">
+                    </div>
                 </div>
 
                 <div id="viewer" role="region" aria-label="data viewer"></div>
@@ -586,7 +678,7 @@
     <div class="modal fade" id="member_modal" aria-labelledby="member_modal" aria-hidden="true">
         <div class="modal-dialog w-100">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header  bg-body-secondary">
                     <h1 class="modal-title fs-5" id="member_name"></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -603,7 +695,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer bg-body-secondary">
                     <button type="button" class="btn btn-danger" title="Հեռացնել"><i class="fa fa-trash-alt"></i></button>
                     <button type="button" class="btn btn-success">Պահպանել</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Փակել</button>
@@ -614,7 +706,7 @@
     <div class="modal fade" id="add_member_modal" aria-labelledby="add_member_modal" aria-hidden="true">
         <div class="modal-dialog w-100">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header  bg-body-secondary">
                     <h1 class="modal-title fs-5">Ավելացնել օգտվող</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -634,11 +726,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer bg-body-secondary">
                     <button type="button" class="btn btn-success">Պահպանել</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Փակել</button>
                 </div>
             </div>
         </div>
     </div>
+<div id="pdfModal" class="modal fade">
+    <div class="modal-dialog w-100">
+        <div class="modal-content">
+            <div class="modal-header  bg-body-secondary">
+                <h1 class="modal-title fs-5">API նկարագրություն</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfFrame" class="w-100" style="min-height: 800px"></iframe>
+            </div>
+            <div class="modal-footer bg-body-secondary">
+                <button type="button" class="btn btn-success " id="download_api_description">Ներբեռնել</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Փակել</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div id="pdfModal" class="modal">-->
+<!--    <div class="modal-content">-->
+<!--        <span class="close" onclick="closePDF()">&times;</span>-->
+<!---->
+<!--        <iframe id="pdfFrame"></iframe>-->
+<!---->
+<!--        <button id="downloadBtn">Download PDF</button>-->
+<!--    </div>-->
+<!--</div>-->
 <!--</div>-->

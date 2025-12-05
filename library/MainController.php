@@ -13,11 +13,11 @@ class MainController {
 
         // buffer content
         ob_start();
-        require $viewFile;
+        require_once $viewFile;
         $content = ob_get_clean();
 
         // layout
-        require __DIR__ . '/../modules/views/layout.php';
+        require_once __DIR__ . '/../modules/views/layout.php';
     }
 
     function helperUrl($params = []) {

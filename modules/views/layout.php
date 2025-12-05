@@ -21,6 +21,8 @@
         <title>TeamPoint</title>
         <!-- favicon PNG -->
         <link rel="icon" type="image/png" href="<?=BASE_URL.'resources/images/TeamPointIco.ico'?>">
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+
         <?php require_once 'blocks/scripts.php'?>
     </head>
     <body>
@@ -80,7 +82,7 @@
         <div class="modal fade" id="modal_feedback" aria-labelledby="API_Description" aria-hidden="true" style="margin-top: 150px">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-body-secondary">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Կապ մեզ հետ</h1>
                         <button type="button" class="btn-close d-flex align-items-center justify-content-center" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i></button>
                     </div>
@@ -92,7 +94,7 @@
                             <button type="submit" class="btn btn-success">Ուղարկել</button>
                         </form>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer  bg-body-secondary">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Փակել</button>
                     </div>
                 </div>
@@ -100,5 +102,6 @@
         </div>
         <?php //require_once 'blocks/footer.php'?>
         <script src="<?= BASE_URL ?>/resources/js/script.js"></script>
+        <script defer src="https://app.blumix.net/vendor/chatbot/js/external-chatbot.js" data-chatbot-uuid="23b4600d-b5bd-491c-b75b-6cd215ad139d" data-iframe-width="500" data-iframe-height="550" data-language="en" ></script>
     </body>
 </html>

@@ -5,6 +5,12 @@ html, body {
     color: white;
     overflow: hidden;
 }
+#lqd-ext-chatbot-wrap{
+    z-index: 999999999999999999999999999999 !important;
+}
+#lqd-ext-chatbot-welcome-bubble {
+    /*color: white !important*/
+}
 .page_title{
     width: fit-content;
     border-bottom: 5px solid green;
@@ -391,6 +397,9 @@ footer{
 .modal-body{
     overflow-y: auto;
 }
+.general_image{
+    background-size: cover;
+}
 .modal h2{text-align:center;margin-top:0;}
 .modal form{display:flex; flex-direction:column; gap:10px;}
 .modal input, .modal textarea {padding:10px; border:1px solid #ccc; border-radius:8px;}
@@ -409,6 +418,37 @@ footer{
     50%{ transform: rotate(25deg) translateY(-5px); }
 }
 @media (max-width: 992px) {
+    input, textarea, select {
+        font-size: 16px !important; /* prevents zoom */
+    }
+    #lqd-ext-chatbot-trigger{
+        height: 200px !important;
+        width: 200px !important;
+    }
+    #lqd-ext-chatbot-wrap #lqd-ext-chatbot-trigger-img{
+        width: 100px !important;
+    }
+    #lqd-ext-chatbot-trigger-icon svg{
+        height: 50px;
+        width: 50px;
+    }
+    #lqd-ext-chatbot-wrap[data-pos-x=right] #lqd-ext-chatbot-welcome-bubble {
+        left: auto;
+        right: 100px;
+        bottom: 210px;
+        font-size: 30px;
+    }
+    #lqd-ext-chatbot-wrap{
+        width: 70% !important;
+        height: 70% !important;
+    }
+    #lqd-ext-chatbot-iframe-wrap{
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .lqd-ext-chatbot-window-conversations-list-item-info-name,.lqd-ext-chatbot-window-conversations-list-item-info-last-message,.lqd-ext-chatbot-window-head h4,.lqd-ext-chatbot-window-start-new button {
+        font-size: 30px !important;
+    }
     input,
     textarea {
         font-size: 16px !important;

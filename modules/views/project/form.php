@@ -3,11 +3,11 @@
         referrerpolicy="origin" crossorigin="anonymous"></script>
 <script src="<?=BASE_URL.'resources/js/project.js'?>"></script>
 
-<h1 class="page_title">Ավելացնել/Խմբագրել պռոեկտ</h1>
+<h1 class="page_title"><?=empty($_GET['id'])?'Ավելացնել':'Խմբագրել'?> պռոեկտ</h1>
 <div class="general_image_block">
     <div class="general_image"></div>
-    <button class="btn btn-secondary">Կցել նկար</button>
-    <input type="file" class="form-control d-none" style="width: auto">
+    <button class="btn btn-secondary attach_button">Կցել նկար</button>
+    <input type="file" class="form-control d-none attach_image" style="width: auto">
 </div>
 <form action="">
     <div class="multi_lang_content mt-2">

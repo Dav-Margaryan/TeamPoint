@@ -15,7 +15,7 @@
             if (empty($directory)) {
                 $exit .= '../';
             } else {
-                require($directory);
+                require_once($directory);
                 break;
             }
         }
