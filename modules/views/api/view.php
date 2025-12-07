@@ -136,18 +136,19 @@
                         </table>
                     </div>
                 </div>
+
                 <div id="collapseBody">
                     <div class="row transfer_types m-0">
-                        <div class="col-6 p-2 type active" data-slide="1">
+                        <div class="col-6 p-2 type active" data-slide="1" >
                             <b>Չփոխանցել պարամետր</b>
                         </div>
-                        <div class="col-6 p-2 type" data-slide="2">
+                        <div class="col-6 p-2 type" data-slide="2" data-type="Multipart/Form-data">
                             <b>Բազմաբաժին ձևաչափով տվյալներ</b>
                         </div>
-                        <div class="col-6 p-2 type" data-slide="3">
+                        <div class="col-6 p-2 type" data-slide="3" data-type="Form data(application/x-www-form-urlencoded)">
                             <b>URL-ով կոդավորված ձևաչափով տվյալներ</b>
                         </div>
-                        <div class="col-6 p-2 type" data-slide="4">
+                        <div class="col-6 p-2 type" data-slide="4" data-type="Raw">
                             <b>Տող</b>
                         </div>
                     </div>
@@ -204,13 +205,13 @@
                                     <tbody>
                                         <tr>
                                             <td scope="raw">
-                                                <input type="text" class="form-control" placeholder="Բանլի">
+                                                <input type="text" class="form-control key" placeholder="Բանլի">
                                             </td>
                                             <td scope="raw">
                                                 <input type="text" class="form-control" placeholder="Արժեք">
                                             </td>
                                             <td scope="raw">
-                                                <input type="text" class="form-control" placeholder="Նկարագրություն">
+                                                <input type="text" class="form-control description" placeholder="Նկարագրություն">
                                             </td>
                                             <td scope="raw" class="text-center pt-3">
                                                 <i class="fa fa-trash d-none"></i>
@@ -318,16 +319,20 @@
                                 <tr>
                                     <th scope="col">Բանալի</th>
                                     <th scope="col">Արժեք</th>
+                                    <th scope="col">Նկարագրություն</th>
                                     <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td scope="raw">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control key" placeholder="Բանալի">
                                     </td>
                                     <td scope="raw">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" placeholder="Արժեք">
+                                    </td>
+                                    <td scope="raw">
+                                        <input type="text" class="form-control description" placeholder="Նկարագրություն">
                                     </td>
                                     <td class="text-center pt-3">
                                         <i class="fa fa-trash d-none"></i>
@@ -344,16 +349,20 @@
                                 <tr>
                                     <th scope="col">Բանալի</th>
                                     <th scope="col">Արժեք</th>
+                                    <th scope="col">Նկարագրություն</th>
                                     <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td scope="raw">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control key" placeholder="Բանալի">
                                     </td>
                                     <td scope="raw">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" placeholder="Արժեք">
+                                    </td>
+                                    <td scope="raw">
+                                        <input type="text" class="form-control description" placeholder="Նկարագրություն">
                                     </td>
                                     <td class="text-center pt-3">
                                         <i class="fa fa-trash d-none"></i>
@@ -378,6 +387,7 @@
                                 <b>Raw</b>
                             </div>
                         </div>
+
                         <div class="w-200 fields mt-3">
                             <div class="w-100"></div>
                             <div class="w-100 inner-collapse" id="multiFormData">
@@ -388,27 +398,31 @@
                                             <th scope="col">Բանալի</th>
                                             <th scope="col">Տեսակ</th>
                                             <th scope="col">Արժեք</th>
+                                            <th scope="col">Նկարագրություն</th>
                                             <th scope="col"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td scope="raw">
-                                                <input type="text" class="form-control" placeholder="Բանալի">
-                                            </td>
-                                            <td scope="raw">
-                                                <select name="" id="" class="form-select data_type_select">
-                                                    <option value="text">Տեքստ</option>
-                                                    <option value="file">Ֆայլ</option>
-                                                </select>
-                                            </td>
-                                            <td scope="raw">
-                                                <input type="text" class="form-control" placeholder="Նկարագրություն">
-                                            </td>
-                                            <td scope="raw" class="text-center pt-3">
-                                                <i class="fa fa-trash d-none"></i>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td scope="raw">
+                                                    <input type="text" class="form-control key" placeholder="Բանալի">
+                                                </td>
+                                                <td scope="raw">
+                                                    <select name="" id="" class="form-select data_type_select">
+                                                        <option value="text">Տեքստ</option>
+                                                        <option value="file">Ֆայլ</option>
+                                                    </select>
+                                                </td>
+                                                <td scope="raw">
+                                                    <input type="text" class="form-control" placeholder="Արժեք">
+                                                </td>
+                                                <td scope="raw">
+                                                    <input type="text" class="form-control description" placeholder="Նկարագրություն">
+                                                </td>
+                                                <td scope="raw" class="text-center pt-3">
+                                                    <i class="fa fa-trash d-none"></i>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
 <!--                                </div>-->
@@ -420,16 +434,20 @@
                                         <tr>
                                             <th scope="col">Բանալի</th>
                                             <th scope="col">Արժեք</th>
+                                            <th scope="col">Նկարագրություն</th>
                                             <th scope="col"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td scope="raw">
-                                                <input type="text" class="form-control" placeholder="Բանալի">
+                                                <input type="text" class="form-control key" placeholder="Բանալի">
                                             </td>
                                             <td scope="raw">
                                                 <input type="text" class="form-control" placeholder="Արժեք">
+                                            </td>
+                                            <td scope="raw">
+                                                <input type="text" class="form-control description" placeholder="Նկարագրություն">
                                             </td>
                                             <td scope="raw" class="text-center pt-3">
                                                 <i class="fa fa-trash d-none"></i>
@@ -564,7 +582,7 @@
             <div class="w-100" id="collapseResponseBody">
                 <div class="d-flex justify-content-between align-items-start">
                     <div class="controls">
-                        <label for="format">Format:</label>
+                        <label for="format">Ֆորմատ :</label>
                         <select id="format">
                             <option value="json" selected>JSON</option>
                             <option value="xml">XML</option>
@@ -740,7 +758,7 @@
                 <h1 class="modal-title fs-5">API նկարագրություն</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body d-flex justify-content-center border-1">
                 <iframe id="pdfFrame" class="w-100" style="min-height: 800px"></iframe>
             </div>
             <div class="modal-footer bg-body-secondary">

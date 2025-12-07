@@ -10,6 +10,10 @@
     <input type="file" class="form-control d-none attach_image" style="width: auto">
 </div>
 <form action="">
+    <div class="form_group">
+        <label for="">Սերվեր URL</label>
+        <input type="text" class="form-control w-25" placeholder="example.com">
+    </div>
     <div class="multi_lang_content mt-2">
         <div class="languages d-flex gap-2">
             <div class="active" data-lang="arm">Հայերեն</div>

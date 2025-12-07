@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg" style="border-bottom: 1px solid #eff1f4;">
     <div class="container" style="position: relative">
         <div class="navbar-brand d-flex">
-            <a href="<?=$this->helperUrl(array('controller'=>'','action'=>''))?>" class="logo">
-                <img src="<?= BASE_URL ?>/resources/images/TeamPoint.png" alt="TeamPoint" class="black_letters d-none">
-                <img src="<?= BASE_URL ?>/resources/images/TeamPointWhite.png" alt="TeamPoint" class="white_letters">
+            <a href="<?=$this->helperUrl(array('controller'=>'','action'=>''))?>" class="logo d-flex align-items-center justify-content-start">
+                <img src="<?= BASE_URL ?>/resources/images/TeamPointIco.png" alt="TeamPoint">
+                <div id="logo_letters" class="d-flex justify-content-start"></div>
             </a>
         </div>
         <div class="d-flex align-items-center">

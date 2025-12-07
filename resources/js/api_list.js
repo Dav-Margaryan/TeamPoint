@@ -1,4 +1,12 @@
 $(document).ready(function (){
+    if($("#qrcode").length){
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: window.location.href,
+            width: 128,
+            height: 128
+        });
+    }
+
     $(document).on("click",'.copy_page_url',function (){
         let value = $(this).closest("div").find('input').val();
         navigator.clipboard.writeText(value).then(function () {
@@ -6,34 +14,8 @@ $(document).ready(function (){
         });
         $(this).html('<i class="fa fa-check"></i>')
     })
-    const pageUrl = encodeURIComponent(window.location.href);
-    const pageTitle = encodeURIComponent(document.title);
-    function shareFacebook() {
-        const url = "https://www.facebook.com/sharer/sharer.php?u=" + pageUrl;
-        window.open(url, "_blank", "width=600,height=600");
-    }
-    function shareLinkedIn() {
-        const url = "https://www.linkedin.com/shareArticle?mini=true&url="
-            + pageUrl + "&title=" + pageTitle;
-        window.open(url, "_blank", "width=600,height=600");
-    }
-    function shareReddit() {
-        const url = "https://www.reddit.com/submit?url=" + pageUrl + "&title=" + pageTitle;
-        window.open(url, "_blank", "width=600,height=600");
-    }
-    function shareInstagram() {
-        if (navigator.share) {
-            navigator.share({
-                title: document.title,
-                url: window.location.href
-            });
-        } else {
-            alert("Instagram sharing is not supported on this device.");
-        }
-    }
 
     $('.feedback_stars .fa-star').on('mouseenter', function () {
-        console.log('here')
         let value = $(this).data('value');
 
         $('.fa-star').removeClass('gold');

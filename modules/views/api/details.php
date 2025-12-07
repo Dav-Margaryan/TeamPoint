@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="<?=BASE_URL.'resources/css/apiList.css'?>">
 <script src="<?=BASE_URL.'resources/js/api_list.js'?>"></script>
+<script src="<?=BASE_URL.'resources/js/qrcode.js'?>"></script>
 <div class="api_title">
     <h1>Project_name/Api_name</h1>
 </div>
@@ -106,21 +107,24 @@
                 <h1 class="modal-title fs-5" id="member_name">Տարածել API-ը</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body pb-4 pt-4">
-                <label class="form-label  mt-2"><b>Պատճենել կայքի հղումը</b></label>
-                <div class="d-flex justify-content-center">
-                    <input type="text" class="form-control api_desc_url" value="<?=((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")
-                        . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]")?>">
-                    <button class="btn btn-outline-secondary copy_page_url">
-                        <i class="fa fa-copy"></i>
-                    </button>
+            <div class="modal-body pb-4 pt-4 d-flex gap-4 align-items-center justify-content-between">
+                <div style="width:-webkit-fill-available">
+                    <label class="form-label  mt-2"><b>Պատճենել կայքի հղումը</b></label>
+                    <div class="d-flex justify-content-center">
+                        <input type="text" class="form-control api_desc_url" value="<?=((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")
+                            . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]")?>">
+                        <button class="btn btn-outline-secondary copy_page_url">
+                            <i class="fa fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-center gap-5 mt-4" style="font-size: 35px">
+                        <i class="fa-brands fa-facebook"  onclick="shareFacebook()"></i>
+                        <i class="fa-brands fa-instagram"  onclick="shareInstagram()"></i>
+                        <i class="fa-brands fa-linkedin" onclick="shareLinkedIn()"></i>
+                        <i class="fa-brands fa-reddit" onclick="shareReddit()"></i>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-center gap-5 mt-4" style="font-size: 35px">
-                    <i class="fa-brands fa-facebook"  onclick="shareFacebook()"></i>
-                    <i class="fa-brands fa-instagram"  onclick="shareInstagram()"></i>
-                    <i class="fa-brands fa-linkedin" onclick="shareLinkedIn()"></i>
-                    <i class="fa-brands fa-reddit" onclick="shareReddit()"></i>
-                </div>
+                <div id="qrcode"></div>
             </div>
             <div class="modal-footer bg-body-secondary">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Փակել</button>
@@ -235,3 +239,30 @@
         </div>
     </div>
 </div>
+<script>
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+    function shareFacebook() {
+        const url = "https://www.facebook.com/sharer/sharer.php?u=" + pageUrl;
+        window.open(url, "_blank", "width=600,height=600");
+    }
+    function shareLinkedIn() {
+        const url = "https://www.linkedin.com/shareArticle?mini=true&url="
+            + pageUrl + "&title=" + pageTitle;
+        window.open(url, "_blank", "width=600,height=600");
+    }
+    function shareReddit() {
+        const url = "https://www.reddit.com/submit?url=" + pageUrl + "&title=" + pageTitle;
+        window.open(url, "_blank", "width=600,height=600");
+    }
+    function shareInstagram() {
+        if (navigator.share) {
+            navigator.share({
+                title: document.title,
+                url: window.location.href
+            });
+        } else {
+            alert("Instagram sharing is not supported on this device.");
+        }
+    }
+</script>

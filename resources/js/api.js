@@ -590,7 +590,7 @@ $(document).ready(function() {
         pdf.setFontSize(18);
 
         if(params.length) {
-            pdf.text("Params", 14, 20);
+            pdf.text("Params (Query string)", 14, 20);
             pdf.autoTable({
                 startY: 25,
                 head: [['Key', 'Description']],
@@ -637,8 +637,10 @@ $(document).ready(function() {
             });
         }
 
+        var body_type = "Body ('" +$(".transfer_types .type.active").attr("data-type")+ "')"
+        console.log(body_type)
         if(body.length) {
-            pdf.text("Body", 14, pdf.autoTable.previous.finalY + 15);
+            pdf.text(body_type, 14, pdf.autoTable.previous.finalY + 15);
             pdf.autoTable({
                 startY: pdf.autoTable.previous.finalY + 20,
                 head: [['Key', 'Description']],

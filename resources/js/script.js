@@ -1,4 +1,18 @@
- const canvas = document.getElementById('bg');
+const text = "TeamPoint";
+const logo_letters = document.getElementById("logo_letters");
+
+text.split("").forEach((char, i) => {
+    const span = document.createElement("span");
+    span.classList.add("letter");
+    span.textContent = char;
+    logo_letters.appendChild(span);
+
+    setTimeout(() => {
+        span.classList.add("show");
+    }, i * 150);
+});
+
+const canvas = document.getElementById('bg');
   const ctx = canvas.getContext('2d');
   let width, height;
 
@@ -232,14 +246,14 @@
              $("body").css({'background-color':'#0f172a','color':'white'})
              $(".navbar").css({'background-color':'black','color':'white'})
              $(".nav-link").css({'color':'white'})
-             $(".black_letters").addClass('d-none')
-             $(".white_letters").removeClass('d-none')
+             $("#logo_letters").css('color','white')
              $('.navbar-toggler-icon').removeClass('dark')
              $('.navbar-toggler').css('border','1px solid white')
              $('.fa-lightbulb').css('color','white')
              $('.mobile_lang_collapse').css('color','white')
-             $('#lqd-ext-chatbot-welcome-bubble').css('color','white !important')
+             // $('#lqd-ext-chatbot-wrap[data-ready=true] #lqd-ext-chatbot-welcome-bubble').css('color','white !important')
              $('.person_account_mobile').css('color','white')
+             $("#lqd-ext-chatbot-wrap[data-ready=true] #lqd-ext-chatbot-welcome-bubble").css('color','white')
 
              if(is_click) {
                  sessionStorage.removeItem("page_light")
@@ -250,13 +264,14 @@
              $("body").css({'background-color':'white','color':'black'})
              $(".navbar").css({'background-color':'white','color':'white'})
              $(".nav-link").css({'color':'#595959FF'})
-             $(".white_letters").addClass('d-none')
-             $(".black_letters").removeClass('d-none')
+             $("#logo_letters").css('color','black')
              $('.navbar-toggler-icon').addClass('dark')
              $('.fa-lightbulb').css('color','greenyellow')
              $('.mobile_lang_collapse').css('color','black')
              $('.person_account_mobile').css('color','black')
-             $('#lqd-ext-chatbot-welcome-bubble').css('color','black !important')
+             $('#lqd-ext-chatbot-wrap[data-ready=true] #lqd-ext-chatbot-welcome-bubble').css('color','black')
+
+             // $("#lqd-ext-chatbot-wrap[data-ready=true] #lqd-ext-chatbot-welcome-bubble").css('color','#595959FF')
              if(is_click) {
                  sessionStorage.removeItem("page_light")
                  sessionStorage.setItem("page_light", "off");
