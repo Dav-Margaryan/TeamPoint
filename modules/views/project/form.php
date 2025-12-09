@@ -12,7 +12,7 @@
 <form action="">
     <div class="form_group">
         <label for="">Սերվեր URL</label>
-        <input type="text" class="form-control w-25" placeholder="example.com">
+        <input type="text" class="form-control w-25" placeholder="example.com" value="<?=!empty($_GET['id'])?'www.example.com':''?>">
     </div>
     <div class="multi_lang_content mt-2">
         <div class="languages d-flex gap-2">

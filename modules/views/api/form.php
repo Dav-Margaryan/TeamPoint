@@ -12,7 +12,7 @@
 <form action="">
     <div class="form_group">
         <label for="">API endpoint</label>
-        <input type="text" class="form-control w-25" placeholder="/api/get_customers">
+        <input type="text" class="form-control w-25" placeholder="/api/get_customers" value="<?=!empty($_GET['id'])?'/api/get_customers':''?>">
     </div>
     <div class="multi_lang_content mt-2">
         <div class="languages d-flex gap-2">

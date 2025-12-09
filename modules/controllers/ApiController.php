@@ -63,6 +63,9 @@ class controllers_ApiController extends MainController{
     }
 
     public function viewAction(){
+        $data['server'] = 'www.example.com';
+        $data['end_point'] = '/api/get_customers';
+
         $data['team_members'] = array(
             0 => array(
                 'id' => 1,
@@ -160,6 +163,47 @@ class controllers_ApiController extends MainController{
                 'writer_full_name' => 'Զառա Խանամիրյան',
                 'color' => 'blue',
                 'message' => 'Լավ'
+            )
+        );
+
+        $data['request_params'] = array(
+            'method' => 'get',
+            'params' => array(
+                'start_date' => array(
+                    'desc' => 'Registration date -> start , format (dd/mm/YYYY)',
+                    'type' => 'date',
+                    'required' => true,
+                    'value' => '01/01/2025'
+                ),
+                'end_date' => array(
+                    'desc' => 'Registration date -> end',
+                    'type' => 'date',
+                    'required' => true,
+                    'value' => '31/12/2025'
+                ),
+                'is_active' => array(
+                    'desc' => 'Activity status of customer -> 1/0',
+                    'type' => 'binary',
+                    'required' => false,
+                    'value' => '1'
+                ),
+                'format' => array(
+                    'desc' => 'Data type format -> application/json | xml',
+                    'type' => 'string',
+                    'required' => true,
+                    'value' => 'application/json'
+                )
+            ),
+            'header' => array(
+                'auth_token' => array(
+                    'desc' => 'Token for authorization',
+                    'type' => 'string',
+                    'required' => true,
+                    'value' => 'asdfisdfkerwnekslfjdwelsejkflsje'
+                )
+            ),
+            'body' => array(
+                'form_type' => 'none'
             )
         );
 

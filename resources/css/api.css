@@ -4,6 +4,18 @@
 .login_menu_item{
     display: none !important;
 }
+.endpoint{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+#pdf-content{
+    background-image: url("../images/TeamPointIco.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: blur(0.5px);
+    pointer-events: none;
+}
 .response_content{
     height: 50vh;
 }

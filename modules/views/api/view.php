@@ -3,11 +3,24 @@
 <script src="<?=BASE_URL.'resources/js/api.js'?>"></script>
 <!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-<!-- AutoTable -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
-
-<style>.main{display: flex;flex-direction: column;align-items: center}</style>
+<style>
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
+    table th{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    table tbody td{
+        text-align: center;
+    }
+</style>
+<?=!empty($end_point)?"<h1 class='endpoint'>".((!empty($server)?$server:'').$end_point)."</h1>":""?>
 <div class="sub_main">
     <div class="row m-0 desktop_block">
         <div class="block1 col-12 col-lg-6 p-0">
@@ -50,24 +63,21 @@
             <div class="api_block_header d-flex align-items-center justify-content-between ps-3 pe-3">
                 <div style="width: fit-content;position: relative;display: inline-block">
                     <div class="d-flex align-items-center gap-2 bg-success p-1 ps-3 pe-3" style="border-radius: 5px" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMethod" aria-expanded="false" aria-controls="collapseMethod">
-                        Մեթոդ
+                        <?= !empty($request_params['method'])?strtoupper($request_params['method']):'Մեթոդ'?>
                         <i class="fa fa-chevron-down"></i>
                     </div>
                     <div class="collapse" id="collapseMethod">
                         <div class="card card-body text-black">
                             <ul class="mb-0">
-                                <li>GET</li>
-                                <li>POST</li>
-                                <li>PUT</li>
-                                <li>PATCH</li>
-                                <li>DELETE</li>
+                                <?php foreach(API::$METHODS as $method):?>
+                                    <li><?=$method?></li>
+                                <?php endforeach;?>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div>
                     <button class="btn btn-primary api_description" ><span>Նկարագրություն</span><i class="fa-brands fa-wpforms"></i></button>
-<!--                    <button class="btn btn-warning api_test"><span>Փորձարկել</span><i class="fa-solid fa-flask"></i></button>-->
                 </div>
             </div>
             <div class="d-flex justify-content-between w-100 blocks p-3">
@@ -82,15 +92,55 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Բանալի</th>
+                                    <th scope="col">Տվյալի տեսակ</th>
+                                    <th scope="col">Պարտադիր</th>
                                     <th scope="col">Արժեք</th>
                                     <th scope="col">Նկարագրություն</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach ($request_params['params'] as $key => $arr):?>
+                                    <tr>
+                                        <td scope="raw">
+                                            <input type="text" class="form-control key" placeholder="Բանալի" value="<?=$key?>">
+                                        </td>
+                                        <td scope="raw">
+                                            <select name="" class="form-control" id="">
+                                                <option value="">Ընտրել</option>
+                                                <?php foreach (API::$REQUEST_DATA_TYPES as $dt):?>
+                                                    <option value="<?=$dt?>" <?=($arr['type']==$dt?'selected':'')?>><?=$dt?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </td>
+                                        <td scope="raw">
+                                            <input type="checkbox" <?=$arr['required']?'checked':''?>>
+                                        </td>
+                                        <td scope="raw">
+                                            <input type="text" class="form-control" placeholder="Արժեք" value="<?=$arr['value']?>">
+                                        </td>
+                                        <td scope="raw">
+                                            <input type="text" class="form-control description" placeholder="Նկարագրություն" value="<?=$arr['desc']?>">
+                                        </td>
+                                        <td class="text-center pt-3">
+                                            <i class="fa fa-trash"></i>
+                                        </td>
+                                    </tr>
+                                <?php endforeach;?>
                                 <tr>
                                     <td scope="raw">
                                         <input type="text" class="form-control key" placeholder="Բանալի">
+                                    </td>
+                                    <td scope="raw">
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Ընտրել</option>
+                                            <?php foreach (API::$REQUEST_DATA_TYPES as $dt):?>
+                                                <option value="<?=$dt?>"><?=$dt?></option>
+                                            <?php endforeach;?>
+                                        </select>
+                                    </td>
+                                    <td scope="raw">
+                                        <input type="checkbox">
                                     </td>
                                     <td scope="raw">
                                         <input type="text" class="form-control" placeholder="Արժեք">
@@ -112,15 +162,55 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Բանալի</th>
+                                    <th scope="col">Տվյլաի տեսակ</th>
+                                    <th scope="col">Պարտադիր</th>
                                     <th scope="col">Արժեք</th>
                                     <th scope="col">Նկարագրություն</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach ($request_params['header'] as $key => $arr):?>
+                                    <tr>
+                                        <td scope="raw">
+                                            <input type="text" class="form-control key" placeholder="Բանալի" value="<?=$key?>">
+                                        </td>
+                                        <td scope="raw">
+                                            <select name="" class="form-control" id="">
+                                                <option value="">Ընտրել</option>
+                                                <?php foreach (API::$REQUEST_DATA_TYPES as $dt):?>
+                                                    <option value="<?=$dt?>" <?=$arr['type']==$dt?'selected':''?>><?=$dt?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </td>
+                                        <td scope="raw">
+                                            <input type="checkbox" <?=$arr['required']?'checked':''?>>
+                                        </td>
+                                        <td scope="raw">
+                                            <input type="text" class="form-control" placeholder="Արժեք" value="<?=$arr['value']?>">
+                                        </td>
+                                        <td scope="raw">
+                                            <input type="text" class="form-control description" placeholder="Նկարագրություն" value="<?=$arr['desc']?>">
+                                        </td>
+                                        <td class="text-center pt-3">
+                                            <i class="fa fa-trash"></i>
+                                        </td>
+                                    </tr>
+                                <?php endforeach;?>
                                 <tr>
                                     <td scope="raw">
                                         <input type="text" class="form-control key" placeholder="Բանալի">
+                                    </td>
+                                    <td scope="raw">
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Ընտրել</option>
+                                            <?php foreach (API::$REQUEST_DATA_TYPES as $dt):?>
+                                                <option value="<?=$dt?>"><?=$dt?></option>
+                                            <?php endforeach;?>
+                                        </select>
+                                    </td>
+                                    <td scope="raw">
+                                        <input type="checkbox">
                                     </td>
                                     <td scope="raw">
                                         <input type="text" class="form-control" placeholder="Արժեք">
@@ -139,18 +229,13 @@
 
                 <div id="collapseBody">
                     <div class="row transfer_types m-0">
-                        <div class="col-6 p-2 type active" data-slide="1" >
-                            <b>Չփոխանցել պարամետր</b>
-                        </div>
-                        <div class="col-6 p-2 type" data-slide="2" data-type="Multipart/Form-data">
-                            <b>Բազմաբաժին ձևաչափով տվյալներ</b>
-                        </div>
-                        <div class="col-6 p-2 type" data-slide="3" data-type="Form data(application/x-www-form-urlencoded)">
-                            <b>URL-ով կոդավորված ձևաչափով տվյալներ</b>
-                        </div>
-                        <div class="col-6 p-2 type" data-slide="4" data-type="Raw">
-                            <b>Տող</b>
-                        </div>
+                        <?php
+                        $data_slide = 1;
+                        foreach (API::$POST_FORM_TYPES as $form_type => $translation):?>
+                            <div class="col-6 p-2 type <?=(!empty($request_params['body']['form_type'])&&$request_params['body']['form_type']==$form_type)?'active':''?>" data-slide="<?=$data_slide?>" data-type="<?=$form_type?>">
+                                <b><?=$translation?></b>
+                            </div>
+                        <?php $data_slide++; endforeach;?>
                     </div>
                     <div class="w-200 fields mt-3">
                         <div></div>
@@ -160,7 +245,8 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Բանալի</th>
-                                            <th scope="col">Տեսակ</th>
+                                            <th scope="col">Տվյալի տեսակ</th>
+                                            <th scope="col">Պարտադիր</th>
                                             <th scope="col">Արժեք</th>
                                             <th scope="col">Նկարագրություն</th>
                                             <th scope="col"></th>
@@ -176,6 +262,9 @@
                                                     <option value="text">Տեքստ</option>
                                                     <option value="file">Ֆայլ</option>
                                                 </select>
+                                            </td>
+                                            <td scope="raw">
+                                                <input type="checkbox">
                                             </td>
                                             <td scope="raw">
                                                 <input type="text" class="form-control" placeholder="Արժեք">
@@ -197,6 +286,8 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">Բանալի</th>
+                                        <th scope="col">Տվյալի տեսակ</th>
+                                        <th scope="col">Պարտադիր</th>
                                         <th scope="col">Արժեք</th>
                                         <th scope="col">Նկարագրություն</th>
                                         <th scope="col"></th>
@@ -206,6 +297,17 @@
                                         <tr>
                                             <td scope="raw">
                                                 <input type="text" class="form-control key" placeholder="Բանլի">
+                                            </td>
+                                            <td scope="raw">
+                                                <select name="" class="form-control" id="">
+                                                    <option value="">Ընտրել</option>
+                                                    <?php foreach (API::$REQUEST_DATA_TYPES as $dt):?>
+                                                        <option value="<?=$dt?>"><?=$dt?></option>
+                                                    <?php endforeach;?>
+                                                </select>
+                                            </td>
+                                            <td scope="raw">
+                                                <input type="checkbox">
                                             </td>
                                             <td scope="raw">
                                                 <input type="text" class="form-control" placeholder="Արժեք">
@@ -318,6 +420,8 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Բանալի</th>
+                                    <th scope="col">Տվյալի տեսակ</th>
+                                    <th scope="col">Պարտադիր</th>
                                     <th scope="col">Արժեք</th>
                                     <th scope="col">Նկարագրություն</th>
                                     <th scope="col"></th>
@@ -327,6 +431,17 @@
                                 <tr>
                                     <td scope="raw">
                                         <input type="text" class="form-control key" placeholder="Բանալի">
+                                    </td>
+                                    <td scope="raw">
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Ընտրել</option>
+                                            <?php foreach (API::$REQUEST_DATA_TYPES as $dt):?>
+                                                <option value="<?=$dt?>"><?=$dt?></option>
+                                            <?php endforeach;?>
+                                        </select>
+                                    </td>
+                                    <td scope="raw">
+                                        <input type="checkbox">
                                     </td>
                                     <td scope="raw">
                                         <input type="text" class="form-control" placeholder="Արժեք">
@@ -348,6 +463,8 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Բանալի</th>
+                                    <th scope="col">Տվյալի տեսակ</th>
+                                    <th scope="col">Պարտադիր</th>
                                     <th scope="col">Արժեք</th>
                                     <th scope="col">Նկարագրություն</th>
                                     <th scope="col"></th>
@@ -357,6 +474,17 @@
                                 <tr>
                                     <td scope="raw">
                                         <input type="text" class="form-control key" placeholder="Բանալի">
+                                    </td>
+                                    <td scope="raw">
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Ընտրել</option>
+                                            <?php foreach (API::$REQUEST_DATA_TYPES as $dt):?>
+                                                <option value="<?=$dt?>"><?=$dt?></option>
+                                            <?php endforeach;?>
+                                        </select>
+                                    </td>
+                                    <td scope="raw">
+                                        <input type="checkbox">
                                     </td>
                                     <td scope="raw">
                                         <input type="text" class="form-control" placeholder="Արժեք">
@@ -433,6 +561,8 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">Բանալի</th>
+                                            <th scope="col">Տվյալի տեսակ</th>
+                                            <th scope="col">Պարտադիր</th>
                                             <th scope="col">Արժեք</th>
                                             <th scope="col">Նկարագրություն</th>
                                             <th scope="col"></th>
@@ -442,6 +572,17 @@
                                         <tr>
                                             <td scope="raw">
                                                 <input type="text" class="form-control key" placeholder="Բանալի">
+                                            </td>
+                                            <td scope="raw">
+                                                <select name="" class="form-control" id="">
+                                                    <option value="">Ընտրել</option>
+                                                    <?php foreach (API::$REQUEST_DATA_TYPES as $dt):?>
+                                                        <option value="<?=$dt?>"><?=$dt?></option>
+                                                    <?php endforeach;?>
+                                                </select>
+                                            </td>
+                                            <td scope="raw">
+                                                <input type="checkbox">
                                             </td>
                                             <td scope="raw">
                                                 <input type="text" class="form-control" placeholder="Արժեք">
@@ -516,7 +657,7 @@
                         </div>
                         <div class="row">
                             <div class="badge">Method: GET</div>
-                            <div class="badge">Path: /api/user</div>
+                            <div class="badge">Path: /api/get_customers</div>
                         </div>
                         <div class="footer">
                             <div>Սերվեր՝ api.example.com</div>
@@ -537,11 +678,30 @@
 
                         <div class="row">
                             <div style="flex:1;">
-                                <div class="hint">DNS: <strong>75.68 ms</strong></div>
-                                <div class="hint">TCP: <strong>79 ms</strong></div>
-                                <div class="hint">SSL: <strong>171.41 ms</strong></div>
-                                <div class="hint">TTFB: <strong>322.88 ms</strong></div>
-                                <div class="hint">Download: <strong>30.10 ms</strong></div>
+                                <table class="tbl table-bordered hint w-100">
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-2">DNS:</td>
+                                            <td class="p-2">75.68 ms</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2">TCP:</td>
+                                            <td class="p-2">79 ms</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2">SSL:</td>
+                                            <td class="p-2">171.41 ms</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2">TTFB:</td>
+                                            <td class="p-2">322.88 ms</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2">Download:</td>
+                                            <td class="p-2">30.10 ms</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
@@ -767,6 +927,142 @@
             </div>
         </div>
     </div>
+</div>
+<div id="pdf-content" class="d-none" style="width: 800px; padding: 40px; font-family: Arial;color: black" >
+    <h1 style="font-size: 36px; margin-bottom: 10px;">API Նկարագրություն</h1>
+    <div style="display:flex;justify-content: space-between;align-items:center;margin-bottom: 20px;">
+        <div style="background:#3a7bff;color:white;padding:6px 12px;border-radius:8px;font-weight:bold;">
+            <?=strtoupper($request_params['method'])?>
+        </div>
+        <div style="font-size:18px;">
+            v1.0
+        </div>
+    </div>
+
+    <div style="font-size:20px; margin-bottom: 10px;">
+        <?=((!empty($server)?$server:'').$end_point)?>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
+
+    <h2>Նկարագրություն</h2>
+    <p>Վերադարձնում է գրանցված օգտվողների ցանկը։</p>
+
+    <?php if(!empty($request_params['params'])):?>
+        <h2>Պարամետրեր</h2>
+        <table class="tbl table-bordered table-striped w-100">
+            <thead>
+                <tr>
+                    <th class="p-2 text-start">Բանլի</th>
+                    <th class="p-2 text-start">Տվյալի տեսակ</th>
+                    <th class="p-2 text-start">Պարտադիր</th>
+                    <th class="p-2 text-start">Նկարագրություն</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($request_params['params'] as $key => $arr):?>
+                <tr>
+                    <td class="p-2 text-start">
+                        <?=$key?>
+                    </td>
+                    <td class="p-2 text-start">
+                        <?=$arr['type']?>
+                    </td>
+                    <td class="p-2 text-start">
+                        <?=$arr['required']?'այո':'ոչ'?>
+                    </td>
+                    <td class="p-2 text-start">
+                        <?=$arr['desc']?>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+            </tbody>
+        </table>
+    <?php endif;
+
+    if(!empty($request_params['header'])):?>
+        <h2 class="mt-3">Գլխագրեր</h2>
+        <table class="tbl table-bordered table-striped w-100">
+            <thead>
+            <tr>
+                <th class="p-2 text-start">Բանլի</th>
+                <th class="p-2 text-start">Տվյալի տեսակ</th>
+                <th class="p-2 text-start">Պարտադիր</th>
+                <th class="p-2 text-start">Նկարագրություն</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($request_params['header'] as $key => $arr):?>
+                <tr>
+                    <td class="p-2 text-start">
+                        <?=$key?>
+                    </td>
+                    <td class="p-2 text-start">
+                        <?=$arr['type']?>
+                    </td>
+                    <td class="p-2 text-start">
+                        <?=$arr['required']?'այո':'ոչ'?>
+                    </td>
+                    <td class="p-2 text-start">
+                        <?=$arr['desc']?>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+            </tbody>
+        </table>
+    <?php endif;
+
+    if(!empty($request_params['body']['params'])):?>
+        <h2 class="mt-3">Բովանդակություն</h2>
+        <table class="tbl table-bordered table-striped w-100">
+            <thead>
+            <tr>
+                <th class="p-2 text-start">Բանլի</th>
+                <th class="p-2 text-start">Տվյալի տեսակ</th>
+                <th class="p-2 text-start">Պարտադիր</th>
+                <th class="p-2 text-start">Նկարագրություն</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($request_params['body']['params'] as $key => $arr):?>
+                <tr>
+                    <td class="p-2 text-start">
+                        <?=$key?>
+                    </td>
+                    <td class="p-2 text-start">
+                        <?=$arr['type']?>
+                    </td>
+                    <td class="p-2 text-start">
+                        <?=$arr['required']?'այո':'ոչ'?>
+                    </td>
+                    <td class="p-2 text-start">
+                        <?=$arr['desc']?>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+            </tbody>
+        </table>
+    <?php endif;?>
+
+    <h2 class="mt-3">Վարդարձված տվյլաներ (200 OK) դեպքում</h2>
+
+    <pre style="
+        background:#f6f8fa;
+        padding:20px;
+        border-radius:10px;
+        border:1px solid #e3e3e3;
+        font-size:14px;
+        white-space:pre-wrap;
+        color: #0b253a;
+    ">
+{
+  "success": true,
+  "data": [
+    { "id": 1, "name": "John" },
+    { "id": 2, "name": "Alice" }
+  ]
+}
+    </pre>
 </div>
 <!--<div id="pdfModal" class="modal">-->
 <!--    <div class="modal-content">-->
