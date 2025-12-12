@@ -1,6 +1,7 @@
 <?php
 echo "<pre>";
 print_r(scandir('/var/www/html'));
+file_exists("DV_Controllers.php");
 echo "</pre>";
 
 error_reporting(E_ALL);
