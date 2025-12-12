@@ -1,16 +1,15 @@
 FROM php:8.2-apache
 
-# Enable Apache Rewrite
 RUN a2enmod rewrite
 
-# Copy project
-COPY . /var/www/html
+RUN sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 
-# Set working dir
+COPY . /var/www/html/
+
 WORKDIR /var/www/html
 
-# Permissions
 RUN chown -R www-data:www-data /var/www/html
-RUN docker-php-ext-install pdo pdo_mysql
 
+RUN docker-php-ext-install pdo_mysql
 
+RUN ls -R /var/www/html
