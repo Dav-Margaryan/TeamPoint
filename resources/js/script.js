@@ -47,7 +47,7 @@ const canvas = document.getElementById('bg');
   }
 
   const particles = [];
-  for (let i = 0; i < 250; i++)
+  for (let i = 0; i < 500; i++)
     particles.push(new Particle());
 
   function dist(p1, p2) {
@@ -86,6 +86,37 @@ const canvas = document.getElementById('bg');
 
   animate();
 
+
+const observer = new MutationObserver(() => {
+    const el = document.querySelector('#lqd-ext-chatbot-trigger-img');
+    if (el) {
+        if($('#lqd-ext-chatbot-trigger-img').is(":visible")) {
+            console.log('Element appeared!', el);
+            setTimeout(function (){
+                $('#lqd-ext-chatbot-welcome-bubble').addClass('d-none')
+                repeatJump()
+            },10000)
+            observer.disconnect(); // stop watching
+        }
+    }
+});
+
+
+function repeatJump(){
+    console.log('jump')
+    $('#lqd-ext-chatbot-trigger').addClass('jump')
+    setTimeout(function (){
+        $('#lqd-ext-chatbot-trigger').removeClass('jump')
+        setTimeout(function () {
+            repeatJump()
+        },1000)
+    },10000)
+}
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
 
  $(document).ready(function(){
      document.querySelectorAll('input, textarea').forEach(el => {

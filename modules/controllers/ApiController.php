@@ -170,25 +170,25 @@ class controllers_ApiController extends MainController{
             'method' => 'get',
             'params' => array(
                 'start_date' => array(
-                    'desc' => 'Registration date -> start , format (dd/mm/YYYY)',
+                    'desc' => 'Գրանցման ամսաթիվ -> սկիզբ , ֆորմատ (dd/mm/YYYY)',
                     'type' => 'date',
                     'required' => true,
                     'value' => '01/01/2025'
                 ),
                 'end_date' => array(
-                    'desc' => 'Registration date -> end',
+                    'desc' => 'Գրանցման ամսաթիվ -> ավարտ , ֆորմատ (dd/mm//YYYY)',
                     'type' => 'date',
                     'required' => true,
                     'value' => '31/12/2025'
                 ),
                 'is_active' => array(
-                    'desc' => 'Activity status of customer -> 1/0',
+                    'desc' => 'Օգտվողի կարգավիճակ ակտիվ/պասիվ -> 1/0',
                     'type' => 'binary',
                     'required' => false,
                     'value' => '1'
                 ),
                 'format' => array(
-                    'desc' => 'Data type format -> application/json | xml',
+                    'desc' => 'Վարադարձվող տվյալների ֆորմատ -> application/json | xml',
                     'type' => 'string',
                     'required' => true,
                     'value' => 'application/json'
@@ -196,7 +196,7 @@ class controllers_ApiController extends MainController{
             ),
             'header' => array(
                 'auth_token' => array(
-                    'desc' => 'Token for authorization',
+                    'desc' => 'Տոկեն նույնականացման համար',
                     'type' => 'string',
                     'required' => true,
                     'value' => 'asdfisdfkerwnekslfjdwelsejkflsje'

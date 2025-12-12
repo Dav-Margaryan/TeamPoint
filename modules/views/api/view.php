@@ -746,7 +746,7 @@
                         <select id="format">
                             <option value="json" selected>JSON</option>
                             <option value="xml">XML</option>
-                            <option value="html">HTML</option>
+<!--                            <option value="html">HTML</option>-->
                         </select>
 
                         <!-- optional: when HTML selected, allow to show source instead of rendered -->
@@ -1044,25 +1044,25 @@
         </table>
     <?php endif;?>
 
-    <h2 class="mt-3">Վարդարձված տվյլաներ (200 OK) դեպքում</h2>
-
-    <pre style="
-        background:#f6f8fa;
-        padding:20px;
-        border-radius:10px;
-        border:1px solid #e3e3e3;
-        font-size:14px;
-        white-space:pre-wrap;
-        color: #0b253a;
-    ">
-{
-  "success": true,
-  "data": [
-    { "id": 1, "name": "John" },
-    { "id": 2, "name": "Alice" }
-  ]
-}
-    </pre>
+<!--    <h2 class="mt-3">Վարդարձված տվյլաներ (200 OK) դեպքում</h2>-->
+<!---->
+<!--    <pre style="-->
+<!--        background:#f6f8fa;-->
+<!--        padding:20px;-->
+<!--        border-radius:10px;-->
+<!--        border:1px solid #e3e3e3;-->
+<!--        font-size:14px;-->
+<!--        white-space:pre-wrap;-->
+<!--        color: #0b253a;-->
+<!--    ">-->
+<!--{-->
+<!--  "success": true,-->
+<!--  "data": [-->
+<!--    { "id": 1, "name": "John" },-->
+<!--    { "id": 2, "name": "Alice" }-->
+<!--  ]-->
+<!--}-->
+<!--    </pre>-->
 </div>
 <!--<div id="pdfModal" class="modal">-->
 <!--    <div class="modal-content">-->

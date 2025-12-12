@@ -10,12 +10,16 @@
     justify-content: start;
 }
 #pdf-content{
-    background-image: url("../images/TeamPointIco.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    filter: blur(0.5px);
-    pointer-events: none;
+    /*background-image: url("../images/TeamPointIco.png");*/
+    /*background-size: contain;*/
+    /*background-repeat: no-repeat;*/
+    /*filter: blur(0.5px);*/
+    /*pointer-events: none;*/
+
 }
+/*#pdf-content::before{*/
+/*    opacity: 0.4;*/
+/*}*/
 .response_content{
     height: 50vh;
 }
