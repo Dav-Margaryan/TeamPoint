@@ -1,4 +1,8 @@
 <?php
+echo "<pre>";
+print_r(scandir('/var/www/html'));
+echo "</pre>";
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 define("BASE_URL", "/Teampoint/");
