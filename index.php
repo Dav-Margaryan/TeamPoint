@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-define("BASE_URL", "/Teampoint/");
+define("BASE_URL", "/Teampoint");
 session_start();
 
 require_once __DIR__ . "/DV_Controllers.php";
