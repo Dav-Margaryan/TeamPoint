@@ -26,7 +26,7 @@
 spl_autoload_register(function ($class) {
 
     $baseDirs = [
-        __DIR__ . '/Library/',
+        __DIR__ . '/library/',
         __DIR__ . '/models/',
         __DIR__ . '/modules/',
     ];
@@ -37,6 +37,7 @@ spl_autoload_register(function ($class) {
         $file = $baseDir . $class;
         if (is_file($file)) {
             require_once $file;
+            break;
         }
     }
 });
