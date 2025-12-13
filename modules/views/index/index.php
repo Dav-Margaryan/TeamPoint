@@ -79,7 +79,7 @@
         <div class="card col-6 col-lg-3">
             <div class="inner">
                 <div class="front">
-                    <div class="icon"><img src="/resources/images/mascot.png" height="50" alt=""></div>
+                    <div class="icon"><img src="resources/images/mascot.png" height="50" alt=""></div>
                     ԱԲ օգնական
                 </div>
                 <div class="back ai-bg" data-icon=''>
