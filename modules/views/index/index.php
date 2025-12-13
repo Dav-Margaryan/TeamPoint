@@ -7,7 +7,7 @@
         <a class="btn btn-success btn-lg mt-3 login1" href="<?=$this->helperUrl(array('controller'=>'customer','action'=>'login'))?>">Մութք համակարգ</a>
     </div>
     <div class="col-12 col-lg-6 d-flex justify-content-end img">
-        <img src="<?=BASE_URL.'/resources/images/general_image1.png'?>" alt="">
+        <img src="resources/images/general_image1.png" alt="">
         <a class="btn btn-success btn-lg mt-3 login2" href="<?=$this->helperUrl(array('controller'=>'customer','action'=>'login'))?>">Մութք համակարգ</a>
     </div>
 </div>

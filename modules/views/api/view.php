@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="<?= BASE_URL.'/resources/css/api.css'?>">
-<script src="<?=BASE_URL.'/resources/js/slick.js'?>"></script>
-<script src="<?=BASE_URL.'/resources/js/api.js'?>"></script>
+<link rel="stylesheet" href="resources/css/api.css">
+<script src="resources/js/slick.js"></script>
+<script src="resources/js/api.js"></script>
 <!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
