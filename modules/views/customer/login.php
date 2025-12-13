@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="resources/css/login.css">
+<link rel="stylesheet" href="/resources/css/login.css">
 
 <div class="login_form_block">
     <div class="first_div p-5">
@@ -16,7 +16,7 @@
                 <a href="<?=$this->helperUrl(array('controller'=>'project','action'=>'index'))?>" class="btn btn-success w-50 mt-2">Մուտք</a>
             </div>
             <div class="mt-4 google_login">
-                <img src="resources/images/Google_logo.svg" height="40" alt="">
+                <img src="/resources/images/Google_logo.svg" height="40" alt="">
                 Շարունակեք Google-ով
             </div>
         </form>

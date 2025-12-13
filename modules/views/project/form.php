@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="resources/css/project.css">
+<link rel="stylesheet" href="/resources/css/project.css">
 <script src="https://cdn.tiny.cloud/1/nbdizg85b5g579d6pand16frqn15j4b8xzjpj90dk0i29uoi/tinymce/8/tinymce.min.js"
         referrerpolicy="origin" crossorigin="anonymous"></script>
-<script src="resources/js/project.js"></script>
+<script src="/resources/js/project.js"></script>
 
 <h1 class="page_title"><?=empty($_GET['id'])?'Ավելացնել':'Խմբագրել'?> պռոեկտ</h1>
 <div class="general_image_block">
