@@ -95,7 +95,7 @@
         <div class="btn comment_button btn-warning d-flex align-items-center gap-2" style="font-size: 21px" data-bs-toggle="modal" data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
             Թողնել մեկնաբանություն <i class="fa fa-commenting text-light"></i>
         </div>
-        <a class="btn get_doc_button btn-primary d-flex align-items-center gap-2" style="font-size: 21px" href="<?=$this->helperUrl(array('controller'=>'customer','action'=>'login'))?>">
+        <a class="btn get_doc_button btn-primary d-flex align-items-center gap-2" style="font-size: 21px" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'login'))?>">
             API նկարագիր <i class="fa fa-file"></i>
         </a>
     </div>

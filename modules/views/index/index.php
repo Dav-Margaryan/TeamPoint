@@ -4,11 +4,11 @@
             <h1>API թեստավորում, փաստաթղթավորում և հրապարակում</h1>
             <h4>Համագործակցեք ձեր թիմի հետ, ավտոմատացրեք փաստաթղթավորումը և հեշտությամբ հրապարակեք API-ները</h4>
         </div>
-        <a class="btn btn-success btn-lg mt-3 login1" href="<?=$this->helperUrl(array('controller'=>'customer','action'=>'login'))?>">Մութք համակարգ</a>
+        <a class="btn btn-success btn-lg mt-3 login1" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'login'))?>">Մութք համակարգ</a>
     </div>
     <div class="col-12 col-lg-6 d-flex justify-content-end img">
         <img src="/resources/images/general_image1.png" alt="">
-        <a class="btn btn-success btn-lg mt-3 login2" href="<?=$this->helperUrl(array('controller'=>'customer','action'=>'login'))?>">Մութք համակարգ</a>
+        <a class="btn btn-success btn-lg mt-3 login2" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'login'))?>">Մութք համակարգ</a>
     </div>
 </div>
 <div class="owl-parent container">

@@ -13,7 +13,7 @@
                 <i class="fa fa-eye-slash position-absolute d-none"></i>
             </div>
             <div class="w-100 d-flex justify-content-center mt-3">
-                <a href="<?=$this->helperUrl(array('controller'=>'project','action'=>'index'))?>" class="btn btn-success w-50 mt-2">Մուտք</a>
+                <a href="<?=$this->helperUrl(array('controller'=>'Project','action'=>'index'))?>" class="btn btn-success w-50 mt-2">Մուտք</a>
             </div>
             <div class="mt-4 google_login">
                 <img src="/resources/images/Google_logo.svg" height="40" alt="">
@@ -21,8 +21,8 @@
             </div>
         </form>
         <div class="d-flex justify-content-between mt-4">
-            <a href="<?=$this->helperUrl(array('controller'=>'customer','action'=>'registration'))?>" class="text-secondary">Գրանցում</a>
-            <a href="<?=$this->helperUrl(array('controller'=>'customer','action'=>'forgotPassword'))?>" class="text-secondary">Մոռացել եմ գաղտանբառը</a>
+            <a href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'registration'))?>" class="text-secondary">Գրանցում</a>
+            <a href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'forgotPassword'))?>" class="text-secondary">Մոռացել եմ գաղտանբառը</a>
         </div>
     </div>
 </div>

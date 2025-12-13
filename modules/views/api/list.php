@@ -45,7 +45,7 @@
                     <div class="card card-body">
                         <?=$api['description']?>
                         <div class="d-flex justify-content-end mt-3">
-                            <a class="btn btn-primary" href="<?=$this->helperUrl(array('controller'=>'api','action'=>'details','data' => array('id'=>1)))?>">Իմանալ ավելին</a>
+                            <a class="btn btn-primary" href="<?=$this->helperUrl(array('controller'=>'Api','action'=>'details','data' => array('id'=>1)))?>">Իմանալ ավելին</a>
                         </div>
                     </div>
                 </div>

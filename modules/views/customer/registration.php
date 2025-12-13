@@ -24,7 +24,7 @@
         </form>
         <div class="d-flex justify-content-between mt-2">
             <a href="" class="text-secondary"></a>
-            <a href="<?=$this->helperUrl(array('controller'=>'customer','action'=>'login'))?>" class="text-secondary">Արդեն ունեմ հաշիվ</a>
+            <a href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'login'))?>" class="text-secondary">Արդեն ունեմ հաշիվ</a>
         </div>
     </div>
 </div>
