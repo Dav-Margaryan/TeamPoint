@@ -4,6 +4,7 @@
     {
         $exit = $fileName = $directory = '';
         $path = "C:/xampp/htdocs/Teampoint";
+        $path = __DIR__;
         $folders = scandir($path);
         $className = str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
         while ($directory == '') {
