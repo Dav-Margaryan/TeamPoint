@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="resources/css/project_api.css">
+<link rel="stylesheet" href="/resources/css/project_api.css">
 <h1 class="page_title">Պռոեկտներ</h1>
 <div class="project_api_list d-flex flex-column w-100">
     <div class="d-flex justify-content-between">
