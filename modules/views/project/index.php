@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="/resources/css/project_api.css">
-<h1 class="page_title">Պռոեկտներ</h1>
+<h1 class="page_title">Նախագծեր</h1>
 <div class="project_api_list d-flex flex-column w-100">
     <div class="d-flex justify-content-between">
         <div></div>
         <a href="<?=$this->helperUrl(array('controller'=>'Project','action'=>'form'))?>" class="btn btn-success d-flex gap-2 align-items-center mb-3" style="width: fit-content;float: right">
             <i class="fa fa-plus"></i>
-            Ավելացնել պրոեկտ
+            Ավելացնել նախագիծ
         </a>
     </div>
     <?php

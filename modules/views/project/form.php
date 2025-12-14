@@ -3,7 +3,7 @@
         referrerpolicy="origin" crossorigin="anonymous"></script>
 <script src="/resources/js/project.js"></script>
 
-<h1 class="page_title"><?=empty($_GET['id'])?'Ավելացնել':'Խմբագրել'?> պռոեկտ</h1>
+<h1 class="page_title"><?=empty($_GET['id'])?'Ավելացնել':'Խմբագրել'?> նախագիծ</h1>
 <div class="general_image_block">
     <div class="general_image"></div>
     <button class="btn btn-secondary attach_button">Կցել նկար</button>

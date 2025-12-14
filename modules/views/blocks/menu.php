@@ -41,7 +41,7 @@
                             </div>
                             <div class="collapse" id="personalAccountInside" style="">
                                 <ul class="navbar-nav ps-5">
-                                    <li class="nav-item"><a class="nav-link" href="<?= $this->helperUrl(array('controller'=>'Project','action'=>'index'))?>">Պռոեկտներ</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<?= $this->helperUrl(array('controller'=>'Project','action'=>'index'))?>">Նախագծեր</a></li>
                                     <li class="nav-item"><a class="nav-link" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'personalAccount'))?>">Անձնական տվյալներ</a></li>
                                     <li class="nav-item"><a class="nav-link" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'changePassword'))?>">Փոխել գաղտնաբառը</a>    </li>
                                     <li class="nav-item"><a class="nav-link" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'logout'))?>">Ելք համակարգից</a></li>
@@ -92,7 +92,7 @@
         <?php if(!empty($_SESSION['user_id'])):?>
             <div class="collapse" id="personalAccount" style="">
                 <ul>
-                    <li><a href="<?= $this->helperUrl(array('controller'=>'Project','action'=>'index'))?>">Պռոեկտներ</a></li>
+                    <li><a href="<?= $this->helperUrl(array('controller'=>'Project','action'=>'index'))?>">Նախագծեր</a></li>
                     <li><a href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'personalAccount'))?>">Անձնական տվյալներ</a></li>
                     <li><a href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'changePassword'))?>">Փոխել գաղտնաբառը</a>    </li>
                     <li><a href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'logout'))?>">Ելք համակարգից</a></li>
