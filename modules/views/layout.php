@@ -25,8 +25,25 @@
 
         <?php require_once 'blocks/scripts.php'?>
     </head>
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('app-loader');
+            loader.style.opacity = '0';
+            loader.style.transition = 'opacity .4s ease';
+
+            setTimeout(() => {
+                loader.remove();
+            }, 400);
+        });
+    </script>
+
     <body>
-        <?php require_once 'blocks/menu.php'?>
+    <div id="app-loader">
+        <div class="spinner"></div>
+        <div class="text">Loading TeamPoint…</div>
+    </div>
+
+    <?php require_once 'blocks/menu.php'?>
         <div class="main container">
             <?= $content ?>
         </div>
