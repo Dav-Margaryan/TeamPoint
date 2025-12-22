@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/resources/css/apiList.css">
+<link rel="stylesheet" href="<?=BASE_URL?>resources/css/apiList.css">
 <div class="api_categories">
     <h1>API կատեգորիաներ</h1>
     <div class="cat_list">

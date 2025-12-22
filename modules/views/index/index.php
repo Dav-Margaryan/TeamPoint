@@ -7,7 +7,7 @@
         <a class="btn btn-success btn-lg mt-3 login1" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'login'))?>">Մութք համակարգ</a>
     </div>
     <div class="col-12 col-lg-6 d-flex justify-content-end img">
-        <img src="/resources/images/general_image1.png" alt="">
+        <img src="<?=BASE_URL?>resources/images/general_image1.png" alt="">
         <a class="btn btn-success btn-lg mt-3 login2" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'login'))?>">Մութք համակարգ</a>
     </div>
 </div>
@@ -79,7 +79,7 @@
         <div class="card col-6 col-lg-3">
             <div class="inner">
                 <div class="front">
-                    <div class="icon"><img src="/resources/images/mascot.png" height="50" alt=""></div>
+                    <div class="icon"><img src="<?=BASE_URL?>resources/images/mascot.png" height="50" alt=""></div>
                     ԱԲ օգնական
                 </div>
                 <div class="back ai-bg" data-icon=''>

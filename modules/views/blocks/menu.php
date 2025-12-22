@@ -2,7 +2,7 @@
     <div class="container" style="position: relative">
         <div class="navbar-brand d-flex">
             <a href="<?=$this->helperUrl(array('controller'=>'Index','action'=>'index'))?>" class="logo d-flex align-items-center justify-content-start">
-                <img src="/resources/images/TeamPointIco.png" alt="TeamPoint">
+                <img src="<?=BASE_URL?>resources/images/TeamPointIco.png" alt="TeamPoint">
                 <div id="logo_letters" class="d-flex justify-content-start"></div>
             </a>
         </div>
@@ -24,7 +24,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown position-relative">
-                        <a class="nav-link" target="_blank" href="/resources/TeamPoint_guide.pdf">
+                        <a class="nav-link" target="_blank" href="<?=BASE_URL?>resources/TeamPoint_guide.pdf">
                             Ուղեցույց
                         </a>
                     </li>
@@ -51,7 +51,6 @@
                     <?php endif;?>
                 </ul>
                 <?php
-                Logger::logDebugInformation($_SESSION);
                 if(empty($_SESSION['user_id'])):?>
                     <ul class="navbar-nav login_menu_item">
                         <li class="nav-item rounded">

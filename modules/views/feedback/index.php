@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/resources/css/login.css">
+<link rel="stylesheet" href="<?=BASE_URL?>resources/css/login.css">
 <style>
     .login_menu_item{
         display: block !important;

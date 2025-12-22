@@ -1,9 +1,14 @@
 <?php
+
 class Router {
+
     private $controller = 'IndexController';
     private $action = 'indexAction';
+//    private MySQL $db;
 
-    public function __construct($url) {
+    public function __construct(string $url) {
+//        $this->db = $db
+
         $parts = explode('/', trim($url, '/'));
 
         if (!empty($parts[0]))
@@ -14,12 +19,15 @@ class Router {
 
     public function dispatch() {
         if (class_exists($this->controller)) {
+            // ⛔ ՉԿԱ new MySQL()
             $controller = new $this->controller();
+
             if (method_exists($controller, $this->action))
                 $controller->{$this->action}();
             else
                 echo "Action {$this->action} not found!";
-        } else
-            Logger::logDebugInformation("Controller {$this->controller} not found!");
+        } else {
+            echo "Controller {$this->controller} not found!";
+        }
     }
 }

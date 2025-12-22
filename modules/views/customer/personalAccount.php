@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/resources/css/login.css">
+<link rel="stylesheet" href="<?=BASE_URL?>resources/css/login.css">
 <div class="login_form_block">
     <div class="first_div p-5">
         <form action="" class="login_form mt-3">

@@ -1,8 +1,11 @@
-<link rel="stylesheet" href="/resources/css/project.css">
-<link rel="stylesheet" href="/resources/css/api.css">
-<script src="https://cdn.tiny.cloud/1/nbdizg85b5g579d6pand16frqn15j4b8xzjpj90dk0i29uoi/tinymce/8/tinymce.min.js"
-        referrerpolicy="origin" crossorigin="anonymous"></script>
-<script src="/resources/js/api.js"></script>
+<style>
+    .tox.tox-tinymce-aux {
+        width: 100% !important;
+    }
+</style>
+<link rel="stylesheet" href="<?=BASE_URL?>resources/css/project.css">
+<link rel="stylesheet" href="<?=BASE_URL?>resources/css/api.css">
+<script src="<?=BASE_URL?>resources/js/api.js"></script>
 <h1 class="page_title"><?=!empty($_GET['id'])?'Խմբագրել':'Ավելացնել'?>API</h1>
 <div class="general_image_block">
     <div class="general_image"></div>

@@ -1,12 +1,18 @@
 <?php
 class MySQL{
-    protected $DB_NAME = 'Teampoint';
-    function query($query){
-        $db = mysqli_connect('localhost','root','',$this->DB_NAME);
-        $response = mysqli_query($db,$query);
+
+    private PDO $pdo;
+
+    public function __construct(PDO $pdo) {
+        $this->pdo = $pdo;
+    }
+
+    public function query(string $sql) {
+        $response = $this->pdo->query($sql)->fetchAll();
+
         if (FALSE === $response) {
             $error = array();
-            $error['message'] = $this->error($db) . "\nQuery is:\n" . $query;
+            $error['message'] = $this->error($this->pdo) . "\nQuery is:\n" . $sql;
             echo JSON_encode($error);
         } else {
             $product = array();
@@ -19,6 +25,8 @@ class MySQL{
                 echo JSON_encode($product);
             }
         }
+
+        return $response;
     }
 
     /**

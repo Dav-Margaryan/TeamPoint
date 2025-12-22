@@ -1,11 +1,11 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-define("BASE_URL", "");
 session_start();
 
-require_once __DIR__ . "/DV_Controllers.php";
+require_once __DIR__ . "/config/development.php";
+require_once __DIR__ . "/library/AuthLoader.php";
 
-$router = new Router($_GET['url'] ?? 'Index/index');
+$router = new Router(($_GET['url'] ?? 'Index/index'));
 $router->dispatch();
 ?>

@@ -20,7 +20,7 @@
         <meta charset="utf-8">
         <title>TeamPoint</title>
         <!-- favicon PNG -->
-        <link rel="icon" type="image/png" href="/resources/images/TeamPointIco.ico">
+        <link rel="icon" type="image/png" href="<?=BASE_URL?>resources/images/TeamPointIco.ico">
 <!--        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
 
         <?php require_once 'blocks/scripts.php'?>
@@ -118,7 +118,7 @@
             </div>
         </div>
         <?php //require_once 'blocks/footer.php'?>
-        <script src="/resources/js/script.js"></script>
+        <script src="<?=BASE_URL?>resources/js/script.js"></script>
         <script defer src="https://app.blumix.net/vendor/chatbot/js/external-chatbot.js" data-chatbot-uuid="23b4600d-b5bd-491c-b75b-6cd215ad139d" data-iframe-width="500" data-iframe-height="550" data-language="en" ></script>
     </body>
 </html>

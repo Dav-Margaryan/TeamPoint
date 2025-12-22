@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/resources/css/apiList.css">
-<script src="/resources/js/api_list.js"></script>
-<script src="/resources/js/qrcode.js"></script>
+<link rel="stylesheet" href="<?=BASE_URL?>resources/css/apiList.css">
+<script src="<?=BASE_URL?>resources/js/api_list.js"></script>
+<script src="<?=BASE_URL?>resources/js/qrcode.js"></script>
 <div class="api_title">
     <h1>Project_name/Api_name</h1>
 </div>
