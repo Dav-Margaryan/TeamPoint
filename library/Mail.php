@@ -18,7 +18,7 @@ class Mail
 
             // Server
             $mail->isSMTP();
-            $mail->Host       = 'smtp.sendgrid.net';
+            $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = EMAIL_USER;
             $mail->Password   = EMAIL_HASH;

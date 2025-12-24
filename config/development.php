@@ -1,6 +1,6 @@
 <?php
 //base url
-define("BASE_URL", "/TeamPoint/");
+define("BASE_URL", "/");
 
 // DataBase configs
 define('HOST','localhost');
@@ -10,5 +10,5 @@ define('PASS','');
 define('CHARSET','utf8mb4');
 
 // Email configs
-define("EMAIL_USER",'apikey');
-define("EMAIL_HASH",'DHEDCL7FN1Y2DB5S7AUSV1M6');
+define("EMAIL_USER",'app.teampoint@gmail.com');
+define("EMAIL_HASH",'fedi rjbh hdvh uqqh');
