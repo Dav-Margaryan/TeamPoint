@@ -1,7 +1,7 @@
 <?php
 //base url
 define("BASE_URL", "/");
-
+//asdfasdfsadf
 // DataBase configs
 define('HOST','localhost');
 define('DB_NAME','teampoint');
