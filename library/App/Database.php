@@ -10,10 +10,11 @@ class App_Database
         $host = HOST;
         $db   = DB_NAME;
         $user = USER;
-        $pass = '';
+        $pass = PASS;
+        $port = PORT;
         $charset = CHARSET;
 
-        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+        $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
