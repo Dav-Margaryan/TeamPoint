@@ -8,7 +8,8 @@ class BrevoMail
     public function __construct()
     {
 //        $this->apiKey = $_ENV['BREVO_API_KEY']; // Render env var
-        $this->apiKey =  getenv('BREVO_API_KEY');;
+        $this->apiKey =  getenv('BREVO_API_KEY');
+//        $this->apiKey =  BREVO_API_KEY;
     }
 
     public function send(string $to, string $subject, string $html): bool
