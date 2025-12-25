@@ -14,3 +14,6 @@ define('CHARSET','utf8mb4');
 define("EMAIL_HOST",'smtp.gmail.com');
 define("EMAIL_USER",'app.teampoint@gmail.com');
 define("EMAIL_HASH",'fedi rjbh hdvh uqqh');
+
+// Email configs Brevo
+// define('BREVO_API_KEY',getenv('BREVO_API_KEY'););
