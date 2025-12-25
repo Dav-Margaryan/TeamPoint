@@ -14,3 +14,5 @@ define('CHARSET','utf8mb4');
 define("EMAIL_HOST",getenv('SMTP_HOST'));
 define("EMAIL_USER",getenv('SMTP_USER'));
 define("EMAIL_HASH",getenv('SMTP_PASS'));
+
+define('BREVO_API_KEY',getenv('BREVO_API_KEY'));
