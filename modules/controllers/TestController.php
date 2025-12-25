@@ -8,10 +8,19 @@ class controllers_TestController extends MainController {
 //        echo '</pre>';
 
 
-        Mail::send(
+//        Mail::send(
+//            'davit.margaryan16@gmail.com',
+//            'Reset password',
+//            "Սեղմիր հղման վրա՝ <a href='{$this->helperUrl(array('controller'=>'index','action'=>'index'))}'>Reset</a>"
+//        );
+        $mail = new BrevoMail();
+
+        $sent = $mail->send(
             'davit.margaryan16@gmail.com',
-            'Reset password',
-            "Սեղմիր հղման վրա՝ <a href='{$this->helperUrl(array('controller'=>'index','action'=>'index'))}'>Reset</a>"
+            'Test email from Render',
+            '<h2>Hello 👋</h2><p>Email works!</p>'
         );
+
+
     }
 }

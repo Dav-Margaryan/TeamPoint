@@ -11,14 +11,13 @@ class Mail
     public static function send($to, $subject, $body)
     {
         $mail = new PHPMailer(true);
-
         try {
             $mail->SMTPDebug = 2;
             $mail->Debugoutput = 'html';
 
             // Server
             $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
+            $mail->Host       = EMAIL_HOST;
             $mail->SMTPAuth   = true;
             $mail->Username   = EMAIL_USER;
             $mail->Password   = EMAIL_HASH;
