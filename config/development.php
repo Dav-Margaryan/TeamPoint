@@ -7,7 +7,7 @@ define('HOST','shuttle.proxy.rlwy.net');
 define('DB_NAME','railway');
 define('USER','root');
 define('PORT',10903);
-define('PASS','MoXSYAfqPKEbTZwfXCpvKnpzPiXiHKhT');
+define('PASS',getenv('DB_PASS'));
 define('CHARSET','utf8mb4');
 
 // Email configs
