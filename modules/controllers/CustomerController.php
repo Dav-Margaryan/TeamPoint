@@ -129,7 +129,7 @@ class controllers_CustomerController extends MainController {
                           Մնում է ընդամենը մեկ փոքր քայլ՝ հաստատել քո էլ․ հասցեն։<br><br>
 
                           Սեղմիր այստեղ 👇<br>
-                          👉 <a href='https://teampoint.onrender.com/Customer/login?activation_key={$insert_data["activation_key"]}'>Գրանցման հաստատում</a>
+                          👉 <a href='https://teampoint.onrender.com/Customer/activateAccount?activation_key={$insert_data["activation_key"]}'>Գրանցման հաստատում</a>
                             <br><br>
                           Եթե սա դու չես եղել, պարզապես անտեսիր նամակը 🙌<br><br>
 
