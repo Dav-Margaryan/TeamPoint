@@ -15,7 +15,7 @@ class controllers_TestController extends MainController {
 //        );
         $mail = new BrevoMail();
 
-        $activation_url = htmlspecialchars($this->helperUrl(array('controller'=>'index','action'=>'index')));
+        $activation_url = 'https://teampoint.onrender.com/';
         $sent = $mail->send(
             'davit.margaryan16@gmail.com',
             'Test email from Render',
