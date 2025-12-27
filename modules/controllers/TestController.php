@@ -15,10 +15,11 @@ class controllers_TestController extends MainController {
 //        );
         $mail = new BrevoMail();
 
+        $activation_url = htmlspecialchars($this->helperUrl(array('controller'=>'index','action'=>'index')));
         $sent = $mail->send(
             'davit.margaryan16@gmail.com',
             'Test email from Render',
-            '<h2>Hello 👋</h2><p><a href='.$this->helperUrl(array('controller'=>'index','action'=>'index')).'>Reset</a></p>'
+            "<h2>Hello 👋</h2><p><a href='$activation_url'>Reset</a></p>"
         );
 
 
