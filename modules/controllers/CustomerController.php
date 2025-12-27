@@ -32,24 +32,64 @@ class controllers_CustomerController extends MainController {
 
     public function registrationAction(){
         $oRequest = $_POST;
+        foreach ($oRequest as $key => $value)
+            $oRequest[$key] = htmlspecialchars($value);
         $error_messages = array();
         if(!empty($oRequest)){
             $oCustomer = new Customers();
+
+            if(empty($oRequest['name']))
+                $error_messages['message'] = 'Լրացրեք անուն դաշտը';
+            elseif(empty($oRequest['lastname']))
+                $error_messages['message'] = 'Լրացրեք ազգանուն դաշտը';
+            elseif(empty($oRequest['email']))
+                $error_messages['message'] = 'Լրացրեք էլ․ հասցե դաշտը';
+            elseif(!preg_match('/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/', $oRequest['email']))
+                $error_messages['message'] = 'Լրացրեք վավեր էլ․ հասցե';
+            elseif(empty($oRequest['password']))
+                $error_messages['message'] = 'Լրացրեք գաղտնաբառ դաշտը';
+            elseif(empty($oRequest['password_repeat']))
+                $error_messages['message'] = 'Լրացրեք կրկնել գաղտնաբառ դաշտը';
+
             $customer_data = $oCustomer->getCustomers(array('username' => $oRequest['email']),array('id'));
             $customer_data = empty($customer_data)||count($customer_data)>1?$customer_data:$customer_data[0];
             if(!empty($customer_data))
-                $error_messages['email'] = 'Այս էլ․ հասցեով կա գրանցված օգտվող';
+                $error_messages['message'] = 'Լրացված էլ․ հասցեով կա գրանցված օգտվող';
             else
                 if(strlen($oRequest['password']) < 6)
-                    $error_messages['password'] = 'Գաղտնաբառը պետք է պարունակի առնվազն 6 նիշ';
+                    $error_messages['message'] = 'Գաղտնաբառը պետք է պարունակի առնվազն 6 նիշ';
                 elseif($oRequest['password'] != $oRequest['password_repeat'])
-                    $error_messages['password_repeat'] = 'Գաղտնաբառերը չեն համնկնում';
+                    $error_messages['password'] = 'Գաղտնաբառերը չեն համնկնում';
+
+                if($oRequest['password'] == $oRequest['email'])
+                    $error_messages['message'] = 'Էլ․ հասցե և գաղտնաբառ դաշտը նույնը լրացնելով դարձնում եք Ձեր հաշիվը խոցելի';
 
             if(empty($error_messages)){
-                Mail::send(
-                    $email,
-                    'Reset password',
-                    "Սեղմիր հղման վրա՝ <a href='https://site.com/reset/$token'>Reset</a>"
+                $insert_data = array(
+                    'username' => trim($oRequest['email']),
+                    'name' => trim($oRequest['name']),
+                    'lastname' => trim($oRequest['lastname']),
+                    'pw' => md5($oRequest['password']),
+                    'is_active' => 0,
+                    'activation_key' => $oCustomer->genActKey(),
+                    'reg_date' => date('Y-m-d H:i:s')
+                );
+
+                $mail = new BrevoMail();
+                $mail->send(
+                    $insert_data['username'],
+                    'Գրանցումը գրեթե պատրաստ է 🚀',
+                    "<br>Բարև 👋<br><br>
+
+                          Ուրախ ենք, որ միանում ես մեզ 🎉<br>
+                          Մնում է ընդամենը մեկ փոքր քայլ՝ հաստատել քո էլ․ հասցեն։<br><br>
+                           
+                          Սեղմիր այստեղ 👇<br>
+                          👉 <a href='https://teampoint.onrender.com/Customer/login?activation_key={$insert_data["activation_key"]}'>Գրանցման հաստատում</a>
+                            <br><br>
+                          Եթե սա դու չես եղել, պարզապես անտեսիր նամակը 🙌<br><br>
+                            
+                          Շնորհակալություն, որ մեզ հետ ես 💙<br><br>Սիրով` <h1><b><img src='../../resources/images/TeamPointIco.png'>TeamPoint</b></h1>"
                 );
             }
 

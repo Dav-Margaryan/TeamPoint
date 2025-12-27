@@ -3,11 +3,11 @@
 define("BASE_URL", "/TeamPoint/");
 
 // DataBase configs
-define('HOST','shuttle.proxy.rlwy.net');
-define('DB_NAME','railway');
+define('HOST','localhost');
+define('DB_NAME','teampoint');
 define('USER','root');
-define('PORT',10903);
-define('PASS','MoXSYAfqPKEbTZwfXCpvKnpzPiXiHKhT');
+define('PORT',3307);
+define('PASS','');
 define('CHARSET','utf8mb4');
 
 // Email configs
