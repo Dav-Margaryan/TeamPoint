@@ -18,7 +18,7 @@ class controllers_CustomerController extends MainController {
                 $error_messages['message'] = "Ձեր հաշիվը ակտիվ չէ, եթե չեք ստացել ակտիվացման նամակը սեղմեք <a href='https://teampoint.onrender.com/Customer/resendActivationMsg?activation_key={$customer_data['activation_key']}'>այստեղ</a>";
             }else {
                 $_SESSION['user_id'] = $customer_data['id'];
-                header("Location: ".$this->helperUrl(array('controller'=>'project','action'=>'index')));
+                header("Location: ".$this->helperUrl(array('controller'=>'Project','action'=>'index')));
                 exit;
             }
         }
