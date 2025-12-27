@@ -10,10 +10,10 @@ class controllers_CustomerController extends MainController {
             $customer_data = empty($customer_data)||count($customer_data)>1?$customer_data:$customer_data[0];
 
             if(empty($customer_data)) {
-                $error_messages['username']['msg'] = 'Օգտվող չի գտնվել';
+                $error_messages['message'] = 'Ծածկանունը կամ գաղտնաբառը սխալ են լրացված';
                 $error_messages['username']['val'] = $oRequest['username'];
             }elseif(md5($oRequest['password']) != $customer_data['pw'])
-                $error_messages['password'] = 'Սխալ գաղտնաբառ';
+                $error_messages['message'] = 'Ծածկանունը կամ գաղտնաբառը սխալ են լրացված';
             else {
                 $_SESSION['user_id'] = $customer_data['id'];
                 header("Location: ".$this->helperUrl(array('controller'=>'project','action'=>'index')));

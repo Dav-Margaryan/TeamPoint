@@ -18,7 +18,7 @@ class controllers_TestController extends MainController {
         $sent = $mail->send(
             'davit.margaryan16@gmail.com',
             'Test email from Render',
-            '<h2>Hello 👋</h2><p>Email works!</p>'
+            '<h2>Hello 👋</h2><p><a href='.$this->helperUrl(array('controller'=>'index','action'=>'index')).'>Reset</a></p>'
         );
 
 
