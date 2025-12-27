@@ -27,7 +27,6 @@ class BrevoMail
         ];
 
         $ch = curl_init($this->endpoint);
-        print_r($ch);
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POST => true,
@@ -39,10 +38,8 @@ class BrevoMail
             CURLOPT_POSTFIELDS => json_encode($data)
         ]);
 
-        $response = curl_exec($ch);
-        print_r($response);
+        curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        print_r($httpCode);
         curl_close($ch);
 
         return $httpCode >= 200 && $httpCode < 300;

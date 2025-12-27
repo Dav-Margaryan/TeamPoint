@@ -6,7 +6,7 @@ class controllers_CustomerController extends MainController {
 
         if(!empty($oRequest['username'])){
             $oCustomers = new Customers();
-            $customer_data = $oCustomers->getCustomers(array('username' => $oRequest['username']),array('id','pw'));
+            $customer_data = $oCustomers->getCustomers(array('username' => $oRequest['username']),array('id','pw','is_active','activation_key'));
             $customer_data = empty($customer_data)||count($customer_data)>1?$customer_data:$customer_data[0];
 
             if(empty($customer_data)) {
@@ -14,7 +14,9 @@ class controllers_CustomerController extends MainController {
                 $error_messages['username']['val'] = $oRequest['username'];
             }elseif(md5($oRequest['password']) != $customer_data['pw'])
                 $error_messages['message'] = 'Ծածկանունը կամ գաղտնաբառը սխալ են լրացված';
-            else {
+            elseif($customer_data['is_active'] == 0){
+                $error_messages['message'] = "Ձեր հաշիվը ակտիվ չէ, եթե չեք ստացել ակտիվացման նամակը սեղմեք <a href='https://teampoint.onrender.com/Customer/resendActivationMsg?activation_key={$customer_data['activation_key']}'>այստեղ</a>";
+            }else {
                 $_SESSION['user_id'] = $customer_data['id'];
                 header("Location: ".$this->helperUrl(array('controller'=>'project','action'=>'index')));
                 exit;
@@ -22,6 +24,46 @@ class controllers_CustomerController extends MainController {
         }
 
         $this->render('customer/login',array('error_message'=>$error_messages));
+    }
+
+    public function resendActivationMsgAction(){
+        $activation_key = htmlspecialchars($_GET['activation_key']);
+        if(!empty($activation_key)){
+            $oCustomer = new Customers();
+            $username = $oCustomer->getCustomers(array('activation_key'=>$activation_key),array('username'))[0]['username'];
+            $mail = new BrevoMail();
+            $mail->send(
+                $username,
+            'Գրանցումը գրեթե պատրաստ է 🚀',
+                "<br>Բարև 👋<br><br>
+
+                      Ուրախ ենք, որ միանում ես մեզ 🎉<br>
+                      Մնում է ընդամենը մեկ փոքր քայլ՝ հաստատել քո էլ․ հասցեն։<br><br>
+
+                      Սեղմիր այստեղ 👇<br>
+                      👉 <a href='https://teampoint.onrender.com/Customer/login?activation_key={$activation_key}'>Գրանցման հաստատում</a>
+                    <br><br>
+                      Եթե սա դու չես եղել, պարզապես անտեսիր նամակը 🙌<br><br>
+
+                      Շնորհակալություն, որ մեզ հետ ես 💙<br><br>Սիրով` <h1><b>TeamPoint</b></h1>"
+                    );
+
+            header("Location: ".$this->helperUrl(array('controller'=>'Customer','action'=>'login','data'=>array('activation_required'=>1))));
+            exit;
+        }
+    }
+
+    public function activateAccountAction(){
+        $activation_key = htmlspecialchars($_GET['activation_key']);
+        $oCustomers = new Customers();
+        $check_existence = $oCustomers->getCustomers(array('activation_key' => $activation_key),array('id'));
+        if(!empty($check_existence)){
+            $oCustomers->updateCustomer($check_existence[0]['id'],array('activation_key' => null,'is_active' => 1));
+            header("Location: ".$this->helperUrl(array('controller'=>'Customer','action'=>'login','data'=>array('activation_required'=>0))));
+            exit();
+        }else{
+            $this->render('customer/login');
+        }
     }
 
     public function logoutAction(){
@@ -59,7 +101,7 @@ class controllers_CustomerController extends MainController {
                 if(strlen($oRequest['password']) < 6)
                     $error_messages['message'] = 'Գաղտնաբառը պետք է պարունակի առնվազն 6 նիշ';
                 elseif($oRequest['password'] != $oRequest['password_repeat'])
-                    $error_messages['password'] = 'Գաղտնաբառերը չեն համնկնում';
+                    $error_messages['message'] = 'Գաղտնաբառերը չեն համնկնում';
 
                 if($oRequest['password'] == $oRequest['email'])
                     $error_messages['message'] = 'Էլ․ հասցե և գաղտնաբառ դաշտը նույնը լրացնելով դարձնում եք Ձեր հաշիվը խոցելի';
@@ -71,26 +113,32 @@ class controllers_CustomerController extends MainController {
                     'lastname' => trim($oRequest['lastname']),
                     'pw' => md5($oRequest['password']),
                     'is_active' => 0,
-                    'activation_key' => $oCustomer->genActKey(),
-                    'reg_date' => date('Y-m-d H:i:s')
+                    'activation_key' => $oCustomer->genActKey()
                 );
 
-                $mail = new BrevoMail();
-                $mail->send(
-                    $insert_data['username'],
-                    'Գրանցումը գրեթե պատրաստ է 🚀',
-                    "<br>Բարև 👋<br><br>
+                $id = $oCustomer->addCustomer($insert_data);
+
+                if(!empty($id)) {
+                    $mail = new BrevoMail();
+                    $mail->send(
+                        $insert_data['username'],
+                        'Գրանցումը գրեթե պատրաստ է 🚀',
+                        "<br>Բարև 👋<br><br>
 
                           Ուրախ ենք, որ միանում ես մեզ 🎉<br>
                           Մնում է ընդամենը մեկ փոքր քայլ՝ հաստատել քո էլ․ հասցեն։<br><br>
-                           
+
                           Սեղմիր այստեղ 👇<br>
                           👉 <a href='https://teampoint.onrender.com/Customer/login?activation_key={$insert_data["activation_key"]}'>Գրանցման հաստատում</a>
                             <br><br>
                           Եթե սա դու չես եղել, պարզապես անտեսիր նամակը 🙌<br><br>
-                            
-                          Շնորհակալություն, որ մեզ հետ ես 💙<br><br>Սիրով` <h1><b><img src='../../resources/images/TeamPointIco.png'>TeamPoint</b></h1>"
-                );
+
+                          Շնորհակալություն, որ մեզ հետ ես 💙<br><br>Սիրով` <h1><b>TeamPoint</b></h1>"
+                    );
+
+                    header("Location: ".$this->helperUrl(array('controller'=>'Customer','action'=>'login','data'=>array('activation_required'=>1))));
+                    exit;
+                }
             }
 
         }

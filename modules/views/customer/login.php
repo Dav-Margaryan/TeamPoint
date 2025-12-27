@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="<?=BASE_URL?>resources/css/login.css">
+<script>
+    const url = new URL(window.location);
+    url.search = ''; // remove query string
+    window.history.replaceState({}, document.title, url.pathname);
+</script>
 <div class="login_form_block">
     <div class="first_div p-5">
         <form action="" class="login_form mt-5" method="post">
@@ -16,6 +21,16 @@
             <?php if(!empty($error_message['message'])):?>
                 <div class="alert alert-danger mt-4">
                     <b><?=$error_message['message']?></b>
+                </div>
+            <?php endif;
+            if(isset($_GET['activation_required']) && $_GET['activation_required'] == 1):?>
+                <div class="alert alert-warning mt-3">
+                    <b>Ձեր էլ․ հասցեին ուղարկվել է նամակ գրանցումը հաստատելու համար</b>
+                </div>
+            <?php endif;
+            if(isset($_GET['activation_required']) && $_GET['activation_required'] == 0):?>
+                <div class="alert alert-success mt-3">
+                    <b>Ձեր գրանցումը հաստատված է, կարող եք մուտք գործել Ձեր հաշիվ</b>
                 </div>
             <?php endif;?>
             <div class="w-100 d-flex justify-content-center mt-3">
