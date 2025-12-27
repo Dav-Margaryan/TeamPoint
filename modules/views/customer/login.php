@@ -6,15 +6,18 @@
             <div class="form-group">
                 <label for="">Ծածկանուն</label>
                 <input type="text" class="form-control" required name="username" value="<?=!empty($error_message['username']['val'])?$error_message['username']['val']:''?>">
-                <span class="text-danger"><b><?=!empty($error_message['username']['msg'])?$error_message['username']['msg']:''?></b></span>
             </div>
             <div class="position-relative mt-3 form-group">
                 <label for="">Գաղտնաբառ</label>
                 <input type="password" class="form-control" required name="password">
-                <span class="text-danger"><b><?=!empty($error_message['password'])?$error_message['password']:''?></b></span>
                 <i class="fa fa-eye position-absolute"></i>
                 <i class="fa fa-eye-slash position-absolute d-none"></i>
             </div>
+            <?php if(!empty($error_message['message'])):?>
+                <div class="alert alert-danger mt-4">
+                    <b><?=$error_message['message']?></b>
+                </div>
+            <?php endif;?>
             <div class="w-100 d-flex justify-content-center mt-3">
                 <button type="submit" href="<?=$this->helperUrl(array('controller'=>'Project','action'=>'index'))?>" class="btn btn-success w-50 mt-2">Մուտք</button>
             </div>
