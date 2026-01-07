@@ -5,8 +5,6 @@
 <script src="<?=BASE_URL?>resources/js/jquery.js"></script>
 
 <script src="<?=BASE_URL?>resources/tinymce/tinymce.min.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/8.1.2/tinymce.min.js"></script>-->
-
 
 <script src="<?=BASE_URL?>resources/js/owl_carousel.js"></script>
 <script src="<?=BASE_URL?>resources/js/bootstrap.js"></script>
