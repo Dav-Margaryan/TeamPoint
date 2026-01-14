@@ -104,7 +104,7 @@ html, body {
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: 22px;
+    /*font-size: 22px;*/
     font-weight: 600;
     gap: 18px;
     text-align: center;
@@ -360,7 +360,7 @@ footer{
     border: 1px solid gainsboro;
 }
 .site_desc_block h1{
-    font-size: 50px;
+    /*font-size: 50px;*/
     font-weight: 700;
     margin-bottom: 30px;
 }
@@ -661,7 +661,7 @@ footer{
     }
     #lqd-ext-chatbot-trigger{
         height: 200px !important;
-        width: 200px !important;
+        width: 80px !important;
     }
     #lqd-ext-chatbot-wrap #lqd-ext-chatbot-trigger-img{
         width: 130px !important;
@@ -674,7 +674,8 @@ footer{
         left: auto;
         right: 100px;
         bottom: 180px;
-        font-size: 30px;
+        /*font-size: 30px;*/
+        background: white;
     }
     #lqd-ext-chatbot-wrap{
         width: 70% !important;
@@ -701,13 +702,13 @@ footer{
     .modal-dialog h1{
         font-size: 35px !important;
     }
-    #collapseLang,#personalAccount{
-        top: 115px;
-        right: 10px;
-    }
-    #collapseLang ul{
-        font-size: 40px;
-    }
+    /*#collapseLang,#personalAccount{*/
+    /*    top: 115px;*/
+    /*    right: 10px;*/
+    /*}*/
+    /*#collapseLang ul{*/
+    /*    font-size: 40px;*/
+    /*}*/
     .person_account{
         display: none !important;
     }
@@ -727,18 +728,21 @@ footer{
         max-width: 100% !important;
     }
     .message_div p{
-        font-size: 30px;
+        /*font-size: 30px;*/
         backdrop-filter: blur(2px);
     }
     .message_div h2{
-        font-size: 45px;
+        /*font-size: 45px;*/
     }
     .owl-item{
-        height: 400px;
-        width: 350px;
+        /*height: 400px;*/
+        /*width: 350px;*/
     }
     .logo img{
-        height: 95px;
+        height: 30px;
+    }
+    #logo_letters{
+        font-size: 30px;
     }
     .navbar-toggler{
         height: 70px;
@@ -748,12 +752,18 @@ footer{
         font-size: 30px;
     }
     .nav-link{
-        font-size: 40px !important;
+        /*font-size: 40px !important;*/
     }
     .light_on_off2{
         display: block !important;
-        font-size: 55px !important;
+        font-size: 30px !important;
         margin-right: 10px !important;
+    }
+    .mobile_lang_collapse,.person_account_mobile{
+        font-size: 30px;
+    }
+    .navbar-toggler{
+        font-size: 30px !important;
     }
     .light_on_off1{
         display: none !important;
@@ -763,6 +773,11 @@ footer{
         width: 300px;
         margin-top: 50px;
         font-size: 22px;
+    }
+}
+@media all and (max-width: 992px){
+    .main .img img{
+        height: 300px;
     }
 }
 /* -------------------------------------------------    media    ------------------------------------------------*/

@@ -165,17 +165,17 @@
         width: 70%;
     }
     .search_block input{
-        height: 59px;
-        font-size: 30px;
+        /*height: 59px;*/
+        /*font-size: 30px;*/
     }
     .search_block i{
-        top: 30px !important;
-        font-size: 40px !important;
+        /*top: 30px !important;*/
+        /*font-size: 40px !important;*/
     }
     .collapse_text_block h2{
-        font-size: 40px;
+        /*font-size: 40px;*/
     }
     .collapse_text_block .card-body{
-        font-size: 30px;
+        /*font-size: 30px;*/
     }
 }

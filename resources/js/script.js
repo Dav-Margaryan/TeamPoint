@@ -47,7 +47,7 @@ const canvas = document.getElementById('bg');
   }
 
   const particles = [];
-  for (let i = 0; i < 500; i++)
+  for (let i = 0; i < 250; i++)
     particles.push(new Particle());
 
   function dist(p1, p2) {
