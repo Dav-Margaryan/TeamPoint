@@ -23,6 +23,8 @@
         <link rel="icon" type="image/png" href="<?=BASE_URL?>resources/images/TeamPointIco.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta property="og:image" content="<?=BASE_URL?>resources/images/TeamPointOgImg.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
         <meta property="og:title" content="TeamPoint">
         <meta property="og:description" content="Համագործակցային հարթակ API մշակման համար">
         <meta property="og:url" content="https://teampoint.onrender.com/">
