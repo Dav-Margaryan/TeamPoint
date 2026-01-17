@@ -47,7 +47,10 @@ const canvas = document.getElementById('bg');
   }
 
   const particles = [];
-  for (let i = 0; i < 250; i++)
+  var partical_count = 250;
+  if(window.innerWidth < 786)
+      partical_count = 65;
+  for (let i = 0; i < partical_count; i++)
     particles.push(new Particle());
 
   function dist(p1, p2) {
@@ -104,13 +107,16 @@ const observer = new MutationObserver(() => {
 
 function repeatJump(){
     console.log('jump')
-    $('#lqd-ext-chatbot-trigger').addClass('jump')
-    setTimeout(function (){
-        $('#lqd-ext-chatbot-trigger').removeClass('jump')
+    if(!$('[data-window-state="open"] #lqd-ext-chatbot-trigger').length)
+        $('#lqd-ext-chatbot-trigger').addClass('jump')
+    setTimeout(function () {
+        if(!$('[data-window-state="open"] #lqd-ext-chatbot-trigger').length)
+            $('#lqd-ext-chatbot-trigger').removeClass('jump')
         setTimeout(function () {
             repeatJump()
-        },1000)
-    },10000)
+        }, 1000)
+    }, 10000)
+
 }
 
 observer.observe(document.body, {
