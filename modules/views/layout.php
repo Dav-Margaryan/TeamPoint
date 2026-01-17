@@ -28,8 +28,6 @@
         <meta property="og:title" content="TeamPoint">
         <meta property="og:description" content="Համագործակցային հարթակ API մշակման համար">
         <meta property="og:url" content="https://teampoint.onrender.com/">
-<!--        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-
         <?php require_once 'blocks/scripts.php'?>
     </head>
     <script>
