@@ -178,4 +178,12 @@
     .collapse_text_block .card-body{
         /*font-size: 30px;*/
     }
+    .circle_category{
+        height: 70px;
+        width: 70px;
+        font-size: 35px;
+    }
+    .cat_list{
+        padding: 10px 0;
+    }
 }

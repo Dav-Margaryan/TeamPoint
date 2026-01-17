@@ -4,7 +4,7 @@
 <div class="api_title">
     <h1>Project_name/Api_name</h1>
 </div>
-<div class="content p-4" style="border-radius: 15px;text-align: justify">
+<div class="content p-4 overflow-hidden" style="border-radius: 15px;text-align: justify">
     <h1 style="text-align:center; color:#1e40af;">🌐 DreamSync Public API</h1>
     <p style="text-align:center; color:#6b7280; font-style:italic;">
         Powerful, reliable, and developer-friendly — connect your app to the DreamSync ecosystem.
@@ -88,14 +88,14 @@
     <p style="text-align:center; font-size:14px; color:#9ca3af;">
         Last updated: <strong>Nov 2025</strong> · API Version <strong>1.0</strong>
     </p>
-    <div class="d-flex gap-3 justify-content-end mt-2">
-        <div class="btn share_button btn-success d-flex align-items-center gap-2" style="font-size: 21px" data-bs-toggle="modal" data-bs-target="#share_api" aria-expanded="false" aria-controls="share_api">
+    <div class="row">
+        <div class="btn share_button btn-success d-flex align-items-center gap-2 col-12 col-md-3 mt-2" style="font-size: 21px" data-bs-toggle="modal" data-bs-target="#share_api" aria-expanded="false" aria-controls="share_api">
             Տարածել<i class="fa-solid fa-share-nodes"></i>
         </div>
-        <div class="btn comment_button btn-warning d-flex align-items-center gap-2" style="font-size: 21px" data-bs-toggle="modal" data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
+        <div class="btn comment_button btn-warning d-flex align-items-center gap-2 col-12 col-md-3 mt-2" style="font-size: 21px" data-bs-toggle="modal" data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
             Թողնել մեկնաբանություն <i class="fa fa-commenting text-light"></i>
         </div>
-        <a class="btn get_doc_button btn-primary d-flex align-items-center gap-2" style="font-size: 21px" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'login'))?>">
+        <a class="btn get_doc_button btn-primary d-flex align-items-center gap-2 col-12 col-md-3 mt-2" style="font-size: 21px" href="<?=$this->helperUrl(array('controller'=>'Customer','action'=>'login'))?>">
             API նկարագիր <i class="fa fa-file"></i>
         </a>
     </div>
